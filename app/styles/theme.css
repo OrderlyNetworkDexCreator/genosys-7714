@@ -157,6 +157,64 @@ html, body {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
+   NAVIGATION HEADER LINKS STYLING
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Target all navigation links in the header */
+nav a,
+.nav-link,
+.header-link,
+header nav a,
+[role="navigation"] a {
+  color: #ffffff !important;                          /* White for inactive links */
+  text-decoration: none !important;
+  background: none !important;                        /* Remove any background */
+  background-image: none !important;                  /* Remove any gradient */
+  transition: color 0.3s ease !important;
+}
+
+/* Active navigation link - Bright Blue */
+nav a.active,
+nav a[aria-current="page"],
+.nav-link.active,
+.header-link.active,
+header nav a.active,
+[role="navigation"] a.active,
+nav a.is-active,
+.nav-link.is-active {
+  color: #3b82f6 !important;                          /* Bright Blue */
+  background: none !important;                        /* Remove gradient background */
+  background-image: none !important;                  /* Remove gradient image */
+  font-weight: 600 !important;                        /* Slightly bolder for active state */
+}
+
+/* Hover state for inactive links */
+nav a:hover:not(.active),
+.nav-link:hover:not(.active),
+.header-link:hover:not(.active) {
+  color: #60a5fa !important;                          /* Light Blue on hover */
+}
+
+/* Remove any underline or border gradients */
+nav a::before,
+nav a::after,
+.nav-link::before,
+.nav-link::after,
+.header-link::before,
+.header-link::after {
+  background: none !important;
+  background-image: none !important;
+}
+
+/* Ensure active link has solid underline instead of gradient */
+nav a.active::after,
+.nav-link.active::after {
+  background: #3b82f6 !important;                     /* Solid blue underline */
+  background-image: none !important;                  /* Remove gradient */
+  height: 2px !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
    ADDITIONAL PROFESSIONAL ENHANCEMENTS
    ═══════════════════════════════════════════════════════════════════════ */
 
@@ -237,6 +295,12 @@ html, body {
    - Red/Green are muted to be clear but not aggressive
    - Adequate contrast ratios for WCAG AA compliance
    - Subtle gradients add depth without distraction
+   
+   NAVIGATION UPDATES:
+   - Inactive links are now white (#ffffff) for clean appearance
+   - Active links use bright blue (#3b82f6) for clear indication
+   - Removed all gradient styling from active links
+   - Solid blue underline for active state
    
    BEST PRACTICES:
    1. Use --oui-color-primary for CTAs and important actions
