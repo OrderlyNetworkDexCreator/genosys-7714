@@ -80,3 +80,37 @@ body {
     font-family: 'Manrope', sans-serif !important;
     font-size: 16px !important;
 }
+
+/* =========================================
+   Genosys Exchange Custom Overrides
+   ========================================= */
+
+/* 1. Navigation Headers (Trade, Portfolio, Leaderboard, Markets, Swap, Vaults) 
+   Override default gray to white. */
+.oui-group.oui-text-base-contrast-36 {
+    color: #ffffff !important;
+}
+
+/* 2. Market Stats Labels (24h change, Mark, Index, 24h volume, Pred. funding rate, Open interest)
+   Override default gray to white. */
+.oui-data-label.oui-text-base-contrast-36 {
+    color: #ffffff !important;
+}
+
+/* 3. Panel Headers (Order book, Last trades)
+   Override default gray to white for inactive tabs. */
+.oui-tab-trigger.oui-text-base-contrast-36 {
+    color: #ffffff !important;
+}
+
+/* 4. Connect Wallet Button
+   Style as bright blue background with white text. */
+.wallet-connect-button,
+button.oui-gradient-brand {
+    background: #007BFF !important;
+    /* Bright Blue */
+    background-color: #007BFF !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border: none !important;
+}
