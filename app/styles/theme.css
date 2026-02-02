@@ -50,8 +50,8 @@
     --oui-gradient-success-end: 14 203 129;
     --oui-gradient-danger-start: 153 24 76;
     --oui-gradient-danger-end: 246 70 93;
-    --oui-gradient-brand-start: 131 175 240;
-    --oui-gradient-brand-end: 71 121 196;
+    --oui-gradient-brand-start: 59 130 246;
+    --oui-gradient-brand-end: 0 61 130;
     --oui-gradient-brand-stop-start: 0%;
     --oui-gradient-brand-stop-end: 100%;
     --oui-gradient-brand-angle: 90deg;
@@ -82,35 +82,189 @@ body {
 }
 
 /* =========================================
-   Genosys Exchange Custom Overrides
+   Genosys Exchange Custom Overrides - AUDITED
    ========================================= */
 
 /* 1. Navigation Headers (Trade, Portfolio, Leaderboard, Markets, Swap, Vaults) 
-   Override default gray to white. */
-.oui-group.oui-text-base-contrast-36 {
+   Override default gray to white for inactive states. */
+.oui-group.oui-text-base-contrast-36,
+[class*="oui-group"] [class*="text-base-contrast-36"] {
     color: #ffffff !important;
+}
+
+/* 1b. Active Navigation Links - Bright Blue Override (#007BFF) - AUDITED & ENFORCED
+   Targets: Trade, Portfolio, Leaderboard, Markets, Swap, Vaults active states
+   Forces removal of gradient backgrounds and applies solid bright blue color.
+   High specificity selectors to override Orderly Network defaults. */
+
+/* Force all active navigation text to solid color first */
+nav a[aria-current="page"],
+nav a.active,
+.oui-nav-link-active,
+[class*="nav-link"][class*="active"],
+[data-active="true"],
+[data-state="active"],
+[data-selected],
+[aria-selected="true"] {
+    background: transparent !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #007BFF !important;
+    color: #007BFF !important;
+}
+
+/* Specific targeting for gradient text spans/classes within header navigation */
+header .oui-gradient-brand-text,
+header [class*="gradient-brand-text"],
+header [class*="oui-text-primary"],
+header .oui-text-primary,
+header .oui-text-primary-light,
+header .oui-group [data-active="true"] .oui-text-base,
+header .oui-group [data-state="active"] .oui-text-base,
+header .oui-group [data-active="true"] span,
+header .oui-group [data-state="active"] span,
+header nav a[data-active="true"],
+header nav a[data-state="active"],
+header .oui-nav [data-active="true"],
+header .oui-nav [data-state="active"] {
+    color: #007BFF !important;
+    background: none !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #007BFF !important;
+    background-clip: unset !important;
+    text-fill-color: #007BFF !important;
+}
+
+/* Target specific header container classes if present */
+[class*="header"] [class*="gradient-brand-text"],
+[class*="header"] [data-active="true"] [class*="text-primary"],
+[class*="header"] [data-state="active"] [class*="text-primary"] {
+    color: #007BFF !important;
+    background: transparent !important;
+    -webkit-text-fill-color: #007BFF !important;
+}
+
+/* Override any hover states that might revert to gradient */
+header nav a:hover,
+header .oui-group a:hover,
+header [class*="nav"]:hover [class*="active"],
+header [class*="nav"] [class*="active"]:hover {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
 }
 
 /* 2. Market Stats Labels (24h change, Mark, Index, 24h volume, Pred. funding rate, Open interest)
    Override default gray to white. */
-.oui-data-label.oui-text-base-contrast-36 {
+.oui-data-label.oui-text-base-contrast-36,
+[class*="data-label"][class*="text-base-contrast"] {
     color: #ffffff !important;
 }
 
-/* 3. Panel Headers (Order book, Last trades)
-   Override default gray to white for inactive tabs. */
-.oui-tab-trigger.oui-text-base-contrast-36 {
+/* 3. Panel Tabs (Order book, Last trades) - Force white color
+   Explicit override to prevent bright blue from affecting these tabs */
+.oui-tab-trigger.oui-text-base-contrast-36,
+[class*="tab-trigger"][class*="text-base-contrast-36"],
+.oui-tab-trigger[data-state="active"],
+.oui-tab-trigger[data-active="true"],
+[class*="tab-trigger"][data-state="active"],
+[class*="tab-trigger"][data-active="true"] {
     color: #ffffff !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-fill-color: #ffffff !important;
+}
+
+/* Specific targeting for Order Book and Last Trades panel headers to ensure white text */
+div[class*="order-book"] [data-state="active"],
+div[class*="last-trades"] [data-state="active"],
+div[class*="order-book"] [data-active="true"],
+div[class*="last-trades"] [data-active="true"],
+div[class*="order-book"] .oui-text-primary,
+div[class*="last-trades"] .oui-text-primary,
+div[class*="order-book"] .oui-text-primary-light,
+div[class*="last-trades"] .oui-text-primary-light {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: transparent !important;
 }
 
 /* 4. Connect Wallet Button
    Style as bright blue background with white text. */
 .wallet-connect-button,
-button.oui-gradient-brand {
+button.oui-gradient-brand,
+[class*="wallet"][class*="connect"],
+button[class*="gradient-brand"] {
     background: #007BFF !important;
-    /* Bright Blue */
     background-color: #007BFF !important;
     background-image: none !important;
     color: #ffffff !important;
     border: none !important;
+}
+
+/* 5. Order Book and Last Trades Column Headers and Data - Force Default Colors
+   Aggressive overrides to prevent bright blue from affecting trading panels */
+div[class*="order-book"] *,
+div[class*="last-trades"] * {
+    -webkit-text-fill-color: initial !important;
+    text-fill-color: initial !important;
+}
+
+/* Column headers - Force White (Time, Price, Qty, Total) */
+div[class*="order-book"] [class*="header"],
+div[class*="last-trades"] [class*="header"],
+div[class*="order-book"] .oui-text-base,
+div[class*="last-trades"] .oui-text-base,
+div[class*="order-book"] [class*="column"],
+div[class*="last-trades"] [class*="column"],
+div[class*="order-book"] [class*="title"],
+div[class*="last-trades"] [class*="title"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+/* Bid/Ask Prices - Green for Bids (Buy) */
+div[class*="order-book"] [class*="bid"],
+div[class*="last-trades"] [class*="bid"],
+div[class*="order-book"] [class*="buy"],
+div[class*="last-trades"] [class*="buy"],
+div[class*="order-book"] [data-side="buy"],
+div[class*="last-trades"] [data-side="buy"] {
+    color: #0ECB81 !important;
+    -webkit-text-fill-color: #0ECB81 !important;
+}
+
+/* Ask Prices - Red for Asks (Sell) */
+div[class*="order-book"] [class*="ask"],
+div[class*="last-trades"] [class*="ask"],
+div[class*="order-book"] [class*="sell"],
+div[class*="last-trades"] [class*="sell"],
+div[class*="order-book"] [data-side="sell"],
+div[class*="last-trades"] [data-side="sell"] {
+    color: #F6465D !important;
+    -webkit-text-fill-color: #F6465D !important;
+}
+
+/* Price numbers in Order Book - ensure they show red/green not blue */
+div[class*="order-book"] span[class*="text"],
+div[class*="order-book"] div[class*="price"],
+div[class*="last-trades"] span[class*="text"],
+div[class*="last-trades"] div[class*="price"] {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+}
+
+/* Last Trades Time and Qty - White/Default */
+div[class*="last-trades"] [class*="time"],
+div[class*="last-trades"] [class*="qty"],
+div[class*="last-trades"] [class*="amount"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
 }
