@@ -85,8 +85,7 @@ body {
    Genosys Exchange Custom Overrides
    ========================================= */
 
-/* 1. Main Header Navigation - Inactive/Normal Links White (Override gray) 
-   Targets: Trade, Portfolio, Leaderboard, Markets, Swap, Vaults */
+/* 1. Main Header Navigation - Inactive/Normal Links White */
 header .oui-group.oui-text-base-contrast-36,
 header nav .oui-group,
 header nav .oui-group a,
@@ -96,9 +95,8 @@ header .oui-nav .oui-group a {
     -webkit-text-fill-color: #ffffff !important;
 }
 
-/* 2. Main Header Navigation ONLY - Active Links Bright Blue
-   Targets: Trade, Portfolio, Leaderboard, Markets, Swap, Vaults
-   Does NOT affect Markets page content, Order Book, or trading panels */
+/* 2. Main Header Navigation - Active Links Solid Bright Blue (#007BFF) NO GRADIENT
+   Targets: Trade, Portfolio, Leaderboard, Markets, Swap, Vaults */
 header nav .oui-group a[data-state="active"],
 header nav .oui-group a[data-active="true"],
 header nav .oui-group a[aria-current="page"],
@@ -111,9 +109,9 @@ header .oui-nav .oui-group [data-active="true"] {
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
     -webkit-text-fill-color: #007BFF !important;
-    text-fill-color: #007BFF !important;
 }
 
+/* Remove gradient text effects from active header items */
 header nav .oui-group [data-state="active"] .oui-gradient-brand-text,
 header nav .oui-group [data-active="true"] .oui-gradient-brand-text,
 header nav .oui-group [data-state="active"] .oui-text-primary,
@@ -122,18 +120,19 @@ header nav .oui-group [data-state="active"] span,
 header nav .oui-group [data-active="true"] span {
     color: #007BFF !important;
     background: none !important;
+    background-image: none !important;
     -webkit-text-fill-color: #007BFF !important;
     background-clip: unset !important;
     -webkit-background-clip: unset !important;
 }
 
-/* 3. Market Stats Labels - Keep White (24h change, Mark, Index, 24h volume, Pred. funding rate, Open interest) */
+/* 3. Market Stats Labels - Keep White */
 .oui-data-label.oui-text-base-contrast-36,
 [class*="data-label"][class*="text-base-contrast"] {
     color: #ffffff !important;
 }
 
-/* 4. Panel Tabs (Order book, Last trades) - White color, NOT blue */
+/* 4. Panel Tabs (Order book, Last trades) - White color */
 .oui-tab-trigger.oui-text-base-contrast-36,
 [class*="tab-trigger"][class*="text-base-contrast-36"] {
     color: #ffffff !important;
@@ -148,10 +147,9 @@ header nav .oui-group [data-active="true"] span {
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
     -webkit-text-fill-color: #ffffff !important;
-    text-fill-color: #ffffff !important;
 }
 
-/* 5. Connect Wallet Button - Bright Blue */
+/* 5. Connect Wallet Button - Bright Blue Solid */
 .wallet-connect-button,
 button.oui-gradient-brand,
 [class*="wallet"][class*="connect"],
@@ -163,8 +161,7 @@ button[class*="gradient-brand"] {
     border: none !important;
 }
 
-/* 6. Trading Interface - Order Book/Last Trades Default Colors (Green/Red/White)
-   Prevent bright blue from affecting trading data */
+/* 6. Trading Interface - Order Book/Last Trades Default Colors */
 div[class*="order-book"] .oui-text-primary,
 div[class*="last-trades"] .oui-text-primary,
 div[class*="order-book"] .oui-text-primary-light,
@@ -199,8 +196,7 @@ div[class*="last-trades"] [class*="sell"] {
     -webkit-text-fill-color: #f6465d !important;
 }
 
-/* 7. Markets Page - Restore Original Colors (No Bright Blue) 
-   Exclude markets page from global active state blue color */
+/* 7. Markets Page - Restore Original Colors */
 main [class*="markets"] [data-state="active"],
 main [class*="markets"] [data-active="true"],
 main [class*="markets"] .oui-text-primary,
