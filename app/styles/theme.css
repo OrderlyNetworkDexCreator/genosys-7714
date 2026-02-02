@@ -85,10 +85,20 @@ body {
    Genosys Exchange Custom Overrides
    ========================================= */
 
-/* 1. Main Header Navigation ONLY - Active Links Bright Blue
+/* 1. Main Header Navigation - Inactive/Normal Links White (Override gray) 
+   Targets: Trade, Portfolio, Leaderboard, Markets, Swap, Vaults */
+header .oui-group.oui-text-base-contrast-36,
+header nav .oui-group,
+header nav .oui-group a,
+header .oui-nav .oui-group,
+header .oui-nav .oui-group a {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* 2. Main Header Navigation ONLY - Active Links Bright Blue
    Targets: Trade, Portfolio, Leaderboard, Markets, Swap, Vaults
    Does NOT affect Markets page content, Order Book, or trading panels */
-
 header nav .oui-group a[data-state="active"],
 header nav .oui-group a[data-active="true"],
 header nav .oui-group a[aria-current="page"],
@@ -117,13 +127,13 @@ header nav .oui-group [data-active="true"] span {
     -webkit-background-clip: unset !important;
 }
 
-/* 2. Market Stats Labels - Keep White (24h change, Mark, Index, 24h volume, Pred. funding rate, Open interest) */
+/* 3. Market Stats Labels - Keep White (24h change, Mark, Index, 24h volume, Pred. funding rate, Open interest) */
 .oui-data-label.oui-text-base-contrast-36,
 [class*="data-label"][class*="text-base-contrast"] {
     color: #ffffff !important;
 }
 
-/* 3. Panel Tabs (Order book, Last trades) - White color, NOT blue */
+/* 4. Panel Tabs (Order book, Last trades) - White color, NOT blue */
 .oui-tab-trigger.oui-text-base-contrast-36,
 [class*="tab-trigger"][class*="text-base-contrast-36"] {
     color: #ffffff !important;
@@ -141,7 +151,7 @@ header nav .oui-group [data-active="true"] span {
     text-fill-color: #ffffff !important;
 }
 
-/* 4. Connect Wallet Button - Bright Blue */
+/* 5. Connect Wallet Button - Bright Blue */
 .wallet-connect-button,
 button.oui-gradient-brand,
 [class*="wallet"][class*="connect"],
@@ -153,7 +163,7 @@ button[class*="gradient-brand"] {
     border: none !important;
 }
 
-/* 5. Trading Interface - Order Book/Last Trades Default Colors (Green/Red/White)
+/* 6. Trading Interface - Order Book/Last Trades Default Colors (Green/Red/White)
    Prevent bright blue from affecting trading data */
 div[class*="order-book"] .oui-text-primary,
 div[class*="last-trades"] .oui-text-primary,
@@ -189,7 +199,7 @@ div[class*="last-trades"] [class*="sell"] {
     -webkit-text-fill-color: #f6465d !important;
 }
 
-/* 6. Markets Page - Restore Original Colors (No Bright Blue) 
+/* 7. Markets Page - Restore Original Colors (No Bright Blue) 
    Exclude markets page from global active state blue color */
 main [class*="markets"] [data-state="active"],
 main [class*="markets"] [data-active="true"],
