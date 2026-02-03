@@ -162,13 +162,67 @@ header nav .oui-group [data-active="true"] span {
     -webkit-background-clip: unset !important;
 }
 
-/* 3. Market Stats Labels - Keep White */
+/* 3. PORTFOLIO PAGE SUB-NAVIGATION - Inactive White + Bright Blue Hover
+   Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings */
+main [class*="portfolio"] .oui-tab-trigger:not([data-state="active"]),
+main [class*="portfolio"] [role="tab"]:not([aria-selected="true"]),
+main [class*="portfolio"] nav a:not([aria-current="page"]),
+main [class*="portfolio"] .oui-group a:not([data-state="active"]),
+main [class*="portfolio"] .oui-nav a:not([data-active="true"]),
+main [class*="portfolio"] [class*="tab"]:not([class*="active"]) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Hover effect for inactive Portfolio sub-navigation items */
+main [class*="portfolio"] .oui-tab-trigger:not([data-state="active"]):hover,
+main [class*="portfolio"] [role="tab"]:not([aria-selected="true"]):hover,
+main [class*="portfolio"] nav a:not([aria-current="page"]):hover,
+main [class*="portfolio"] .oui-group a:not([data-state="active"]):hover,
+main [class*="portfolio"] .oui-nav a:not([data-active="true"]):hover,
+main [class*="portfolio"] [class*="tab"]:not([class*="active"]):hover {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    opacity: 1 !important;
+}
+
+/* Portfolio active sub-navigation - Solid Bright Blue */
+main [class*="portfolio"] .oui-tab-trigger[data-state="active"],
+main [class*="portfolio"] [role="tab"][aria-selected="true"],
+main [class*="portfolio"] nav a[aria-current="page"],
+main [class*="portfolio"] .oui-group a[data-state="active"],
+main [class*="portfolio"] .oui-nav a[data-active="true"] {
+    color: #007BFF !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #007BFF !important;
+}
+
+/* Ensure Portfolio hover overrides gradient text */
+main [class*="portfolio"] .oui-tab-trigger:hover .oui-gradient-brand-text,
+main [class*="portfolio"] nav a:hover .oui-gradient-brand-text,
+main [class*="portfolio"] .oui-tab-trigger:hover .oui-text-primary,
+main [class*="portfolio"] nav a:hover .oui-text-primary,
+main [class*="portfolio"] .oui-tab-trigger:hover span,
+main [class*="portfolio"] nav a:hover span {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    background: none !important;
+    background-image: none !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+}
+
+/* 4. Market Stats Labels - Keep White */
 .oui-data-label.oui-text-base-contrast-36,
 [class*="data-label"][class*="text-base-contrast"] {
     color: #ffffff !important;
 }
 
-/* 4. Panel Tabs (Order book, Last trades) - White color */
+/* 5. Panel Tabs (Order book, Last trades) - White color */
 .oui-tab-trigger.oui-text-base-contrast-36,
 [class*="tab-trigger"][class*="text-base-contrast-36"] {
     color: #ffffff !important;
@@ -185,7 +239,7 @@ header nav .oui-group [data-active="true"] span {
     -webkit-text-fill-color: #ffffff !important;
 }
 
-/* 5. Connect Wallet Button - Bright Blue Solid */
+/* 6. Connect Wallet Button - Bright Blue Solid */
 .wallet-connect-button,
 button.oui-gradient-brand,
 [class*="wallet"][class*="connect"],
@@ -197,7 +251,7 @@ button[class*="gradient-brand"] {
     border: none !important;
 }
 
-/* 6. Trading Interface - Order Book/Last Trades Default Colors */
+/* 7. Trading Interface - Order Book/Last Trades Default Colors */
 div[class*="order-book"] .oui-text-primary,
 div[class*="last-trades"] .oui-text-primary,
 div[class*="order-book"] .oui-text-primary-light,
@@ -232,7 +286,7 @@ div[class*="last-trades"] [class*="sell"] {
     -webkit-text-fill-color: #f6465d !important;
 }
 
-/* 7. Markets Page - Restore Original Colors */
+/* 8. Markets Page - Restore Original Colors */
 main [class*="markets"] [data-state="active"],
 main [class*="markets"] [data-active="true"],
 main [class*="markets"] .oui-text-primary,
