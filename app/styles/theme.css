@@ -94,18 +94,40 @@ header .oui-nav .oui-group,
 header .oui-nav .oui-group a {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
-    transition: color 0.2s ease !important;
+    transition: all 0.2s ease !important;
 }
 
-/* Hover effect for inactive header navigation items */
+/* Hover effect for inactive header navigation items - HIGH SPECIFICITY */
 header nav .oui-group a:hover,
 header .oui-nav .oui-group a:hover,
-header nav .oui-group a:not([data-state="active"]):hover,
-header nav .oui-group a:not([data-active="true"]):hover,
+header nav .oui-group > a:hover,
+header .oui-nav .oui-group > a:hover,
+header nav .oui-group span:hover,
+header .oui-nav .oui-group span:hover,
+header .oui-group a:not([data-state="active"]):hover,
+header .oui-group a:not([data-active="true"]):hover,
 header .oui-nav .oui-group a:not([data-state="active"]):hover,
-header .oui-nav .oui-group a:not([data-active="true"]):hover {
+header .oui-nav .oui-group a:not([data-active="true"]):hover,
+header .oui-group > *:not([data-state="active"]):hover,
+header .oui-group > *:not([data-active="true"]):hover {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
+    opacity: 1 !important;
+}
+
+/* Ensure hover overrides any gradient text */
+header nav .oui-group a:hover .oui-gradient-brand-text,
+header .oui-nav .oui-group a:hover .oui-gradient-brand-text,
+header nav .oui-group a:hover .oui-text-primary,
+header .oui-nav .oui-group a:hover .oui-text-primary,
+header nav .oui-group a:hover span,
+header .oui-nav .oui-group a:hover span {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    background: none !important;
+    background-image: none !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
 }
 
 /* 2. Main Header Navigation - Active Links Solid Bright Blue (#007BFF) NO GRADIENT
@@ -122,6 +144,7 @@ header .oui-nav .oui-group [data-active="true"] {
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
     -webkit-text-fill-color: #007BFF !important;
+    pointer-events: none !important;
 }
 
 /* Remove gradient text effects from active header items */
