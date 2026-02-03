@@ -164,50 +164,65 @@ header nav .oui-group [data-active="true"] span {
 
 /* 3. PORTFOLIO PAGE SUB-NAVIGATION - Inactive White + Bright Blue Hover
    Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings */
-main [class*="portfolio"] .oui-tab-trigger:not([data-state="active"]),
-main [class*="portfolio"] [role="tab"]:not([aria-selected="true"]),
-main [class*="portfolio"] nav a:not([aria-current="page"]),
-main [class*="portfolio"] .oui-group a:not([data-state="active"]),
-main [class*="portfolio"] .oui-nav a:not([data-active="true"]),
-main [class*="portfolio"] [class*="tab"]:not([class*="active"]) {
+
+/* Base: Force all Portfolio sub-nav text to white first */
+[class*="portfolio"] [role="tablist"] [role="tab"],
+[class*="portfolio"] .oui-tabs [data-state],
+[class*="portfolio"] nav[class*="tabs"] a,
+[class*="portfolio"] .oui-tab-list [data-orientation],
+[class*="portfolio"] [class*="TabsTrigger"],
+[class*="portfolio"] [class*="tab-trigger"] {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
-    transition: all 0.2s ease !important;
+    transition: color 0.2s ease !important;
 }
 
-/* Hover effect for inactive Portfolio sub-navigation items */
-main [class*="portfolio"] .oui-tab-trigger:not([data-state="active"]):hover,
-main [class*="portfolio"] [role="tab"]:not([aria-selected="true"]):hover,
-main [class*="portfolio"] nav a:not([aria-current="page"]):hover,
-main [class*="portfolio"] .oui-group a:not([data-state="active"]):hover,
-main [class*="portfolio"] .oui-nav a:not([data-active="true"]):hover,
-main [class*="portfolio"] [class*="tab"]:not([class*="active"]):hover {
+/* Inactive: White color */
+[class*="portfolio"] [role="tablist"] [role="tab"][aria-selected="false"],
+[class*="portfolio"] .oui-tabs [data-state="inactive"],
+[class*="portfolio"] nav[class*="tabs"] a:not([aria-current="page"]),
+[class*="portfolio"] .oui-tab-list [data-state="inactive"],
+[class*="portfolio"] [class*="TabsTrigger"][data-state="inactive"],
+[class*="portfolio"] [class*="tab-trigger"]:not([data-state="active"]) {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Active: Solid Bright Blue NO GRADIENT */
+[class*="portfolio"] [role="tablist"] [role="tab"][aria-selected="true"],
+[class*="portfolio"] .oui-tabs [data-state="active"],
+[class*="portfolio"] nav[class*="tabs"] a[aria-current="page"],
+[class*="portfolio"] .oui-tab-list [data-state="active"],
+[class*="portfolio"] [class*="TabsTrigger"][data-state="active"],
+[class*="portfolio"] [class*="tab-trigger"][data-state="active"] {
+    color: #007BFF !important;
+    background: none !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #007BFF !important;
+    text-fill-color: #007BFF !important;
+}
+
+/* Hover: Bright Blue for inactive items */
+[class*="portfolio"] [role="tablist"] [role="tab"][aria-selected="false"]:hover,
+[class*="portfolio"] .oui-tabs [data-state="inactive"]:hover,
+[class*="portfolio"] nav[class*="tabs"] a:not([aria-current="page"]):hover,
+[class*="portfolio"] .oui-tab-list [data-state="inactive"]:hover,
+[class*="portfolio"] [class*="TabsTrigger"][data-state="inactive"]:hover,
+[class*="portfolio"] [class*="tab-trigger"]:not([data-state="active"]):hover {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
     opacity: 1 !important;
 }
 
-/* Portfolio active sub-navigation - Solid Bright Blue */
-main [class*="portfolio"] .oui-tab-trigger[data-state="active"],
-main [class*="portfolio"] [role="tab"][aria-selected="true"],
-main [class*="portfolio"] nav a[aria-current="page"],
-main [class*="portfolio"] .oui-group a[data-state="active"],
-main [class*="portfolio"] .oui-nav a[data-active="true"] {
-    color: #007BFF !important;
-    background: none !important;
-    background-image: none !important;
-    -webkit-background-clip: unset !important;
-    background-clip: unset !important;
-    -webkit-text-fill-color: #007BFF !important;
-}
-
-/* Ensure Portfolio hover overrides gradient text */
-main [class*="portfolio"] .oui-tab-trigger:hover .oui-gradient-brand-text,
-main [class*="portfolio"] nav a:hover .oui-gradient-brand-text,
-main [class*="portfolio"] .oui-tab-trigger:hover .oui-text-primary,
-main [class*="portfolio"] nav a:hover .oui-text-primary,
-main [class*="portfolio"] .oui-tab-trigger:hover span,
-main [class*="portfolio"] nav a:hover span {
+/* Child element override: Force blue on all children when parent hovered */
+[class*="portfolio"] [role="tablist"] [role="tab"]:hover *,
+[class*="portfolio"] .oui-tabs [data-state="inactive"]:hover *,
+[class*="portfolio"] nav[class*="tabs"] a:hover *,
+[class*="portfolio"] [class*="TabsTrigger"]:hover *,
+[class*="portfolio"] [class*="tab-trigger"]:hover * {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
     background: none !important;
