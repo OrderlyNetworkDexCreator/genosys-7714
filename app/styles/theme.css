@@ -85,7 +85,8 @@ body {
    Genosys Exchange Custom Overrides
    ========================================= */
 
-/* 1. Main Header Navigation - Inactive/Normal Links White */
+/* 1. Main Header Navigation - Inactive/Normal Links White + Bright Blue Hover
+   Targets: Trade, Portfolio, Leaderboard, Markets, Swap, Vaults */
 header .oui-group.oui-text-base-contrast-36,
 header nav .oui-group,
 header nav .oui-group a,
@@ -93,6 +94,18 @@ header .oui-nav .oui-group,
 header .oui-nav .oui-group a {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
+    transition: color 0.2s ease !important;
+}
+
+/* Hover effect for inactive header navigation items */
+header nav .oui-group a:hover,
+header .oui-nav .oui-group a:hover,
+header nav .oui-group a:not([data-state="active"]):hover,
+header nav .oui-group a:not([data-active="true"]):hover,
+header .oui-nav .oui-group a:not([data-state="active"]):hover,
+header .oui-nav .oui-group a:not([data-active="true"]):hover {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
 }
 
 /* 2. Main Header Navigation - Active Links Solid Bright Blue (#007BFF) NO GRADIENT
