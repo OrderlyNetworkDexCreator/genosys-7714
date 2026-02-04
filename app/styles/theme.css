@@ -162,73 +162,139 @@ header nav .oui-group [data-active="true"] span {
     -webkit-background-clip: unset !important;
 }
 
-/* 3. PORTFOLIO PAGE SUB-NAVIGATION - Inactive White + Bright Blue Hover
+/* 3. PORTFOLIO PAGE SIDEBAR NAVIGATION - Left Sidebar Menu
    Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings */
 
-/* Base: Force all Portfolio sub-nav text to white first */
-[class*="portfolio"] [role="tablist"] [role="tab"],
-[class*="portfolio"] .oui-tabs [data-state],
-[class*="portfolio"] nav[class*="tabs"] a,
-[class*="portfolio"] .oui-tab-list [data-orientation],
-[class*="portfolio"] [class*="TabsTrigger"],
-[class*="portfolio"] [class*="tab-trigger"] {
+/* Sidebar container scope - targeting the left sidebar specifically */
+aside[class*="sidebar"],
+nav[class*="sidebar"],
+[class*="portfolio-sidebar"],
+[class*="portfolio"] aside,
+[class*="portfolio"] nav[class*="nav"],
+div[class*="portfolio"] > div:first-child,
+[class*="layout"] > aside,
+[class*="layout"] > nav {
+    /* Inactive items - White */
+    --inactive-color: #ffffff;
+    --hover-color: #007BFF;
+    --active-color: #007BFF;
+}
+
+/* Sidebar navigation links - Base white color */
+aside[class*="sidebar"] a,
+nav[class*="sidebar"] a,
+[class*="portfolio-sidebar"] a,
+[class*="portfolio"] aside a,
+[class*="portfolio"] nav[class*="nav"] a,
+div[class*="portfolio"] > div:first-child a,
+[class*="layout"] > aside a,
+[class*="layout"] > nav a,
+aside[class*="sidebar"] [class*="item"],
+nav[class*="sidebar"] [class*="item"],
+[class*="portfolio-sidebar"] [class*="item"],
+[class*="portfolio"] aside [class*="item"],
+[class*="portfolio"] nav[class*="nav"] [class*="item"] {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
-    transition: color 0.2s ease !important;
+    transition: color 0.2s ease, background-color 0.2s ease !important;
 }
 
-/* Inactive: White color */
-[class*="portfolio"] [role="tablist"] [role="tab"][aria-selected="false"],
-[class*="portfolio"] .oui-tabs [data-state="inactive"],
-[class*="portfolio"] nav[class*="tabs"] a:not([aria-current="page"]),
-[class*="portfolio"] .oui-tab-list [data-state="inactive"],
-[class*="portfolio"] [class*="TabsTrigger"][data-state="inactive"],
-[class*="portfolio"] [class*="tab-trigger"]:not([data-state="active"]) {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-}
-
-/* Active: Solid Bright Blue NO GRADIENT */
-[class*="portfolio"] [role="tablist"] [role="tab"][aria-selected="true"],
-[class*="portfolio"] .oui-tabs [data-state="active"],
-[class*="portfolio"] nav[class*="tabs"] a[aria-current="page"],
-[class*="portfolio"] .oui-tab-list [data-state="active"],
-[class*="portfolio"] [class*="TabsTrigger"][data-state="active"],
-[class*="portfolio"] [class*="tab-trigger"][data-state="active"] {
-    color: #007BFF !important;
-    background: none !important;
-    background-image: none !important;
-    background-color: transparent !important;
-    -webkit-background-clip: unset !important;
-    background-clip: unset !important;
-    -webkit-text-fill-color: #007BFF !important;
-    text-fill-color: #007BFF !important;
-}
-
-/* Hover: Bright Blue for inactive items */
-[class*="portfolio"] [role="tablist"] [role="tab"][aria-selected="false"]:hover,
-[class*="portfolio"] .oui-tabs [data-state="inactive"]:hover,
-[class*="portfolio"] nav[class*="tabs"] a:not([aria-current="page"]):hover,
-[class*="portfolio"] .oui-tab-list [data-state="inactive"]:hover,
-[class*="portfolio"] [class*="TabsTrigger"][data-state="inactive"]:hover,
-[class*="portfolio"] [class*="tab-trigger"]:not([data-state="active"]):hover {
+/* Sidebar navigation links - Hover state (Bright Blue) */
+aside[class*="sidebar"] a:hover,
+nav[class*="sidebar"] a:hover,
+[class*="portfolio-sidebar"] a:hover,
+[class*="portfolio"] aside a:hover,
+[class*="portfolio"] nav[class*="nav"] a:hover,
+div[class*="portfolio"] > div:first-child a:hover,
+[class*="layout"] > aside a:hover,
+[class*="layout"] > nav a:hover,
+aside[class*="sidebar"] [class*="item"]:hover,
+nav[class*="sidebar"] [class*="item"]:hover,
+[class*="portfolio-sidebar"] [class*="item"]:hover,
+[class*="portfolio"] aside [class*="item"]:hover,
+[class*="portfolio"] nav[class*="nav"] [class*="item"]:hover {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
+    background-color: rgba(0, 123, 255, 0.1) !important;
     opacity: 1 !important;
 }
 
-/* Child element override: Force blue on all children when parent hovered */
-[class*="portfolio"] [role="tablist"] [role="tab"]:hover *,
-[class*="portfolio"] .oui-tabs [data-state="inactive"]:hover *,
-[class*="portfolio"] nav[class*="tabs"] a:hover *,
-[class*="portfolio"] [class*="TabsTrigger"]:hover *,
-[class*="portfolio"] [class*="tab-trigger"]:hover * {
+/* Sidebar active/current state - Solid Bright Blue */
+aside[class*="sidebar"] a[aria-current="page"],
+nav[class*="sidebar"] a[aria-current="page"],
+[class*="portfolio-sidebar"] a[aria-current="page"],
+[class*="portfolio"] aside a[aria-current="page"],
+[class*="portfolio"] nav[class*="nav"] a[aria-current="page"],
+aside[class*="sidebar"] a[class*="active"],
+nav[class*="sidebar"] a[class*="active"],
+[class*="portfolio-sidebar"] a[class*="active"],
+[class*="portfolio"] aside a[class*="active"],
+[class*="portfolio"] nav[class*="nav"] a[class*="active"],
+aside[class*="sidebar"] [data-state="active"],
+nav[class*="sidebar"] [data-state="active"],
+[class*="portfolio-sidebar"] [data-state="active"],
+[class*="portfolio"] aside [data-state="active"],
+[class*="portfolio"] nav[class*="nav"] [data-state="active"],
+aside[class*="sidebar"] [class*="active"],
+nav[class*="sidebar"] [class*="active"],
+[class*="portfolio-sidebar"] [class*="active"],
+[class*="portfolio"] aside [class*="active"],
+[class*="portfolio"] nav[class*="nav"] [class*="active"] {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    background-color: rgba(0, 123, 255, 0.15) !important;
+    background: rgba(0, 123, 255, 0.15) !important;
+    background-image: none !important;
+    border-left: 3px solid #007BFF !important;
+}
+
+/* Child elements - icons, text spans, etc. */
+aside[class*="sidebar"] a *,
+nav[class*="sidebar"] a *,
+[class*="portfolio-sidebar"] a *,
+[class*="portfolio"] aside a *,
+[class*="portfolio"] nav[class*="nav"] a *,
+aside[class*="sidebar"] [class*="item"] *,
+nav[class*="sidebar"] [class*="item"] *,
+[class*="portfolio-sidebar"] [class*="item"] *,
+[class*="portfolio"] aside [class*="item"] *,
+[class*="portfolio"] nav[class*="nav"] [class*="item"] * {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+}
+
+/* Hover - Force all children to blue */
+aside[class*="sidebar"] a:hover *,
+nav[class*="sidebar"] a:hover *,
+[class*="portfolio-sidebar"] a:hover *,
+[class*="portfolio"] aside a:hover *,
+[class*="portfolio"] nav[class*="nav"] a:hover *,
+aside[class*="sidebar"] [class*="item"]:hover *,
+nav[class*="sidebar"] [class*="item"]:hover *,
+[class*="portfolio-sidebar"] [class*="item"]:hover *,
+[class*="portfolio"] aside [class*="item"]:hover *,
+[class*="portfolio"] nav[class*="nav"] [class*="item"]:hover * {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
     background: none !important;
     background-image: none !important;
     background-clip: unset !important;
     -webkit-background-clip: unset !important;
+}
+
+/* Active - Force all children to blue */
+aside[class*="sidebar"] a[aria-current="page"] *,
+nav[class*="sidebar"] a[aria-current="page"] *,
+[class*="portfolio-sidebar"] a[aria-current="page"] *,
+[class*="portfolio"] aside a[aria-current="page"] *,
+[class*="portfolio"] nav[class*="nav"] a[aria-current="page"] *,
+aside[class*="sidebar"] [data-state="active"] *,
+nav[class*="sidebar"] [data-state="active"] *,
+[class*="portfolio-sidebar"] [data-state="active"] *,
+[class*="portfolio"] aside [data-state="active"] *,
+[class*="portfolio"] nav[class*="nav"] [data-state="active"] * {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
 }
 
 /* 4. Market Stats Labels - Keep White */
