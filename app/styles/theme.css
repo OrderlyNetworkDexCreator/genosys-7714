@@ -162,150 +162,139 @@ header nav .oui-group [data-active="true"] span {
     -webkit-background-clip: unset !important;
 }
 
-/* 3. PORTFOLIO PAGE SIDEBAR NAVIGATION - BRUTE FORCE APPROACH
+/* 3. PORTFOLIO PAGE SIDEBAR NAVIGATION - Left Sidebar Menu
    Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings */
 
-/* Reset ALL text in portfolio page to white first */
-[class*="portfolio"] * {
-    color: #ffffff;
+/* Sidebar container scope - targeting the left sidebar specifically */
+aside[class*="sidebar"],
+nav[class*="sidebar"],
+[class*="portfolio-sidebar"],
+[class*="portfolio"] aside,
+[class*="portfolio"] nav[class*="nav"],
+div[class*="portfolio"] > div:first-child,
+[class*="layout"] > aside,
+[class*="layout"] > nav {
+    /* Inactive items - White */
+    --inactive-color: #ffffff;
+    --hover-color: #007BFF;
+    --active-color: #007BFF;
 }
 
-/* SPECIFIC: Portfolio sidebar navigation items by text content */
-[class*="portfolio"] a:has-text("Overview"),
-[class*="portfolio"] a:has-text("Positions"),
-[class*="portfolio"] a:has-text("Orders"),
-[class*="portfolio"] a:has-text("Assets"),
-[class*="portfolio"] a:has-text("Fee tier"),
-[class*="portfolio"] a:has-text("API Keys"),
-[class*="portfolio"] a:has-text("Settings") {
+/* Sidebar navigation links - Base white color */
+aside[class*="sidebar"] a,
+nav[class*="sidebar"] a,
+[class*="portfolio-sidebar"] a,
+[class*="portfolio"] aside a,
+[class*="portfolio"] nav[class*="nav"] a,
+div[class*="portfolio"] > div:first-child a,
+[class*="layout"] > aside a,
+[class*="layout"] > nav a,
+aside[class*="sidebar"] [class*="item"],
+nav[class*="sidebar"] [class*="item"],
+[class*="portfolio-sidebar"] [class*="item"],
+[class*="portfolio"] aside [class*="item"],
+[class*="portfolio"] nav[class*="nav"] [class*="item"] {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
-    transition: all 0.2s ease !important;
+    transition: color 0.2s ease, background-color 0.2s ease !important;
 }
 
-/* SPECIFIC: Hover states by text content */
-[class*="portfolio"] a:has-text("Overview"):hover,
-[class*="portfolio"] a:has-text("Positions"):hover,
-[class*="portfolio"] a:has-text("Orders"):hover,
-[class*="portfolio"] a:has-text("Assets"):hover,
-[class*="portfolio"] a:has-text("Fee tier"):hover,
-[class*="portfolio"] a:has-text("API Keys"):hover,
-[class*="portfolio"] a:has-text("Settings"):hover {
+/* Sidebar navigation links - Hover state (Bright Blue) */
+aside[class*="sidebar"] a:hover,
+nav[class*="sidebar"] a:hover,
+[class*="portfolio-sidebar"] a:hover,
+[class*="portfolio"] aside a:hover,
+[class*="portfolio"] nav[class*="nav"] a:hover,
+div[class*="portfolio"] > div:first-child a:hover,
+[class*="layout"] > aside a:hover,
+[class*="layout"] > nav a:hover,
+aside[class*="sidebar"] [class*="item"]:hover,
+nav[class*="sidebar"] [class*="item"]:hover,
+[class*="portfolio-sidebar"] [class*="item"]:hover,
+[class*="portfolio"] aside [class*="item"]:hover,
+[class*="portfolio"] nav[class*="nav"] [class*="item"]:hover {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
     background-color: rgba(0, 123, 255, 0.1) !important;
+    opacity: 1 !important;
 }
 
-/* GENERIC: All links in Portfolio page - White base */
-[class*="portfolio"] a:not([aria-current="page"]):not([data-state="active"]):not(.active) {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    transition: color 0.2s ease !important;
-}
-
-/* GENERIC: All links in Portfolio page - Hover Blue */
-[class*="portfolio"] a:not([aria-current="page"]):not([data-state="active"]):not(.active):hover {
+/* Sidebar active/current state - Solid Bright Blue */
+aside[class*="sidebar"] a[aria-current="page"],
+nav[class*="sidebar"] a[aria-current="page"],
+[class*="portfolio-sidebar"] a[aria-current="page"],
+[class*="portfolio"] aside a[aria-current="page"],
+[class*="portfolio"] nav[class*="nav"] a[aria-current="page"],
+aside[class*="sidebar"] a[class*="active"],
+nav[class*="sidebar"] a[class*="active"],
+[class*="portfolio-sidebar"] a[class*="active"],
+[class*="portfolio"] aside a[class*="active"],
+[class*="portfolio"] nav[class*="nav"] a[class*="active"],
+aside[class*="sidebar"] [data-state="active"],
+nav[class*="sidebar"] [data-state="active"],
+[class*="portfolio-sidebar"] [data-state="active"],
+[class*="portfolio"] aside [data-state="active"],
+[class*="portfolio"] nav[class*="nav"] [data-state="active"],
+aside[class*="sidebar"] [class*="active"],
+nav[class*="sidebar"] [class*="active"],
+[class*="portfolio-sidebar"] [class*="active"],
+[class*="portfolio"] aside [class*="active"],
+[class*="portfolio"] nav[class*="nav"] [class*="active"] {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
-}
-
-/* GENERIC: Active state - Solid Blue */
-[class*="portfolio"] a[aria-current="page"],
-[class*="portfolio"] a[data-state="active"],
-[class*="portfolio"] a.active,
-[class*="portfolio"] [class*="active"] {
-    color: #007BFF !important;
-    -webkit-text-fill-color: #007BFF !important;
+    background-color: rgba(0, 123, 255, 0.15) !important;
     background: rgba(0, 123, 255, 0.15) !important;
-    border-left: 2px solid #007BFF !important;
+    background-image: none !important;
+    border-left: 3px solid #007BFF !important;
 }
 
-/* NESTED: All children of portfolio links */
-[class*="portfolio"] a > *,
-[class*="portfolio"] a > span,
-[class*="portfolio"] a > div,
-[class*="portfolio"] a > svg {
+/* Child elements - icons, text spans, etc. */
+aside[class*="sidebar"] a *,
+nav[class*="sidebar"] a *,
+[class*="portfolio-sidebar"] a *,
+[class*="portfolio"] aside a *,
+[class*="portfolio"] nav[class*="nav"] a *,
+aside[class*="sidebar"] [class*="item"] *,
+nav[class*="sidebar"] [class*="item"] *,
+[class*="portfolio-sidebar"] [class*="item"] *,
+[class*="portfolio"] aside [class*="item"] *,
+[class*="portfolio"] nav[class*="nav"] [class*="item"] * {
     color: inherit !important;
     -webkit-text-fill-color: inherit !important;
-    fill: currentColor !important;
-    stroke: currentColor !important;
 }
 
-/* HOVER: Force all nested children to blue */
-[class*="portfolio"] a:not([aria-current="page"]):not([data-state="active"]):hover > *,
-[class*="portfolio"] a:not([aria-current="page"]):not([data-state="active"]):hover > span,
-[class*="portfolio"] a:not([aria-current="page"]):not([data-state="active"]):hover > div,
-[class*="portfolio"] a:not([aria-current="page"]):not([data-state="active"]):hover > svg {
+/* Hover - Force all children to blue */
+aside[class*="sidebar"] a:hover *,
+nav[class*="sidebar"] a:hover *,
+[class*="portfolio-sidebar"] a:hover *,
+[class*="portfolio"] aside a:hover *,
+[class*="portfolio"] nav[class*="nav"] a:hover *,
+aside[class*="sidebar"] [class*="item"]:hover *,
+nav[class*="sidebar"] [class*="item"]:hover *,
+[class*="portfolio-sidebar"] [class*="item"]:hover *,
+[class*="portfolio"] aside [class*="item"]:hover *,
+[class*="portfolio"] nav[class*="nav"] [class*="item"]:hover * {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
-    fill: #007BFF !important;
-    stroke: #007BFF !important;
+    background: none !important;
+    background-image: none !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
 }
 
-/* OVERRIDE: Specific Orderly UI classes in Portfolio context */
-[class*="portfolio"] .oui-text-base-contrast-36,
-[class*="portfolio"] .oui-text-base-contrast-54,
-[class*="portfolio"] .oui-text-base-contrast-72 {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-}
-
-[class*="portfolio"] .oui-text-base-contrast-36:hover,
-[class*="portfolio"] .oui-text-base-contrast-54:hover,
-[class*="portfolio"] .oui-text-base-contrast-72:hover {
+/* Active - Force all children to blue */
+aside[class*="sidebar"] a[aria-current="page"] *,
+nav[class*="sidebar"] a[aria-current="page"] *,
+[class*="portfolio-sidebar"] a[aria-current="page"] *,
+[class*="portfolio"] aside a[aria-current="page"] *,
+[class*="portfolio"] nav[class*="nav"] a[aria-current="page"] *,
+aside[class*="sidebar"] [data-state="active"] *,
+nav[class*="sidebar"] [data-state="active"] *,
+[class*="portfolio-sidebar"] [data-state="active"] *,
+[class*="portfolio"] aside [data-state="active"] *,
+[class*="portfolio"] nav[class*="nav"] [data-state="active"] * {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
-}
-
-[class*="portfolio"] [data-state="active"] .oui-text-base-contrast-36,
-[class*="portfolio"] [data-state="active"] .oui-text-base-contrast-54,
-[class*="portfolio"] [data-state="active"] .oui-text-base-contrast-72,
-[class*="portfolio"] [aria-current="page"] .oui-text-base-contrast-36,
-[class*="portfolio"] [aria-current="page"] .oui-text-base-contrast-54,
-[class*="portfolio"] [aria-current="page"] .oui-text-base-contrast-72 {
-    color: #007BFF !important;
-    -webkit-text-fill-color: #007BFF !important;
-}
-
-/* CRITICAL: Sidebar specific structure targeting */
-[class*="portfolio"] aside a,
-[class*="portfolio"] nav a,
-[class*="portfolio"] [class*="sidebar"] a,
-[class*="portfolio"] [class*="menu"] a,
-[class*="portfolio"] [class*="navigation"] a,
-[class*="portfolio"] [class*="nav"] a {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    transition: all 0.2s ease !important;
-}
-
-[class*="portfolio"] aside a:hover,
-[class*="portfolio"] nav a:hover,
-[class*="portfolio"] [class*="sidebar"] a:hover,
-[class*="portfolio"] [class*="menu"] a:hover,
-[class*="portfolio"] [class*="navigation"] a:hover,
-[class*="portfolio"] [class*="nav"] a:hover {
-    color: #007BFF !important;
-    -webkit-text-fill-color: #007BFF !important;
-    background-color: rgba(0, 123, 255, 0.08) !important;
-}
-
-[class*="portfolio"] aside a[aria-current="page"],
-[class*="portfolio"] nav a[aria-current="page"],
-[class*="portfolio"] [class*="sidebar"] a[aria-current="page"],
-[class*="portfolio"] [class*="menu"] a[aria-current="page"],
-[class*="portfolio"] [class*="navigation"] a[aria-current="page"],
-[class*="portfolio"] [class*="nav"] a[aria-current="page"],
-[class*="portfolio"] aside a[data-state="active"],
-[class*="portfolio"] nav a[data-state="active"],
-[class*="portfolio"] [class*="sidebar"] a[data-state="active"],
-[class*="portfolio"] [class*="menu"] a[data-state="active"],
-[class*="portfolio"] [class*="navigation"] a[data-state="active"],
-[class*="portfolio"] [class*="nav"] a[data-state="active"] {
-    color: #007BFF !important;
-    -webkit-text-fill-color: #007BFF !important;
-    background: rgba(0, 123, 255, 0.12) !important;
-    border-left: 3px solid #007BFF !important;
 }
 
 /* 4. Market Stats Labels - Keep White */
