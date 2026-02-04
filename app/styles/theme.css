@@ -162,11 +162,10 @@ header nav .oui-group [data-active="true"] span {
     -webkit-background-clip: unset !important;
 }
 
-/* 3. PORTFOLIO SIDEBAR - SIMPLIFIED BROAD SELECTORS
-   Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings
-   Strategy: Use LESS specific selectors that will actually match */
+/* 3. PORTFOLIO SIDEBAR NAVIGATION - WHITE INACTIVE + BRIGHT BLUE HOVER
+   Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings */
 
-/* Portfolio page sidebar base - all links white */
+/* Base: All sidebar links white with smooth transition */
 a[href*="overview"],
 a[href*="positions"],
 a[href*="orders"],
@@ -179,7 +178,7 @@ a[href*="settings"] {
     transition: color 0.2s ease !important;
 }
 
-/* Portfolio sidebar hover - bright blue */
+/* Hover: Bright blue #007BFF for inactive items */
 a[href*="overview"]:hover,
 a[href*="positions"]:hover,
 a[href*="orders"]:hover,
@@ -191,7 +190,7 @@ a[href*="settings"]:hover {
     -webkit-text-fill-color: #007BFF !important;
 }
 
-/* Portfolio sidebar active - bright blue */
+/* Active: Solid bright blue (no hover effect on active) */
 a[href*="overview"][aria-current="page"],
 a[href*="positions"][aria-current="page"],
 a[href*="orders"][aria-current="page"],
@@ -210,44 +209,18 @@ a[href*="settings"].active {
     -webkit-text-fill-color: #007BFF !important;
 }
 
-/* Portfolio sidebar icons - inherit color */
-a[href*="overview"] svg,
-a[href*="positions"] svg,
-a[href*="orders"] svg,
-a[href*="assets"] svg,
-a[href*="fee-tier"] svg,
-a[href*="api-keys"] svg,
-a[href*="settings"] svg,
-a[href*="overview"] span,
-a[href*="positions"] span,
-a[href*="orders"] span,
-a[href*="assets"] span,
-a[href*="fee-tier"] span,
-a[href*="api-keys"] span,
-a[href*="settings"] span {
+/* Child elements (icons, text spans) inherit color with transition */
+a[href*="overview"] *,
+a[href*="positions"] *,
+a[href*="orders"] *,
+a[href*="assets"] *,
+a[href*="fee-tier"] *,
+a[href*="api-keys"] *,
+a[href*="settings"] * {
     color: inherit !important;
     -webkit-text-fill-color: inherit !important;
+    transition: color 0.2s ease !important;
     fill: currentColor !important;
-}
-
-/* Hover state for children */
-a[href*="overview"]:hover svg,
-a[href*="positions"]:hover svg,
-a[href*="orders"]:hover svg,
-a[href*="assets"]:hover svg,
-a[href*="fee-tier"]:hover svg,
-a[href*="api-keys"]:hover svg,
-a[href*="settings"]:hover svg,
-a[href*="overview"]:hover span,
-a[href*="positions"]:hover span,
-a[href*="orders"]:hover span,
-a[href*="assets"]:hover span,
-a[href*="fee-tier"]:hover span,
-a[href*="api-keys"]:hover span,
-a[href*="settings"]:hover span {
-    color: #007BFF !important;
-    -webkit-text-fill-color: #007BFF !important;
-    fill: #007BFF !important;
 }
 
 /* 4. Market Stats Labels - Keep White */
@@ -285,22 +258,17 @@ button[class*="gradient-brand"] {
     border: none !important;
 }
 
-/* FIX: "Create account" button text color */
+/* FIX: "Create account" button text color - ensure white text on buttons */
 button,
 [role="button"],
-[type="button"],
-[class*="button"],
-[class*="Button"] {
+[type="button"] {
     color: inherit !important;
 }
 
-/* Specific fix for primary buttons to ensure white text */
+/* Specific fix for primary buttons */
 button[class*="primary"],
-button[class*="Primary"],
 button[class*="solid"],
-[class*="wallet"],
-[class*="create"],
-[class*="Create"] {
+[class*="wallet"] {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
 }
