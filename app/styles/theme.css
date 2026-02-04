@@ -162,180 +162,92 @@ header nav .oui-group [data-active="true"] span {
     -webkit-background-clip: unset !important;
 }
 
-/* 3. PORTFOLIO SIDEBAR NAVIGATION - COMPREHENSIVE BRUTE FORCE APPROACH
-   Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings */
+/* 3. PORTFOLIO SIDEBAR - SIMPLIFIED BROAD SELECTORS
+   Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings
+   Strategy: Use LESS specific selectors that will actually match */
 
-/* STRATEGY 1: Universal sidebar link reset with high specificity */
-[class*="portfolio"] aside a,
-[class*="portfolio"] nav a,
-[class*="portfolio"] [class*="side"] a,
-[class*="portfolio"] [class*="nav"] a,
-body:has([href*="portfolio"]) aside a,
-body:has([href*="portfolio"]) nav a {
+/* Portfolio page sidebar base - all links white */
+a[href*="overview"],
+a[href*="positions"],
+a[href*="orders"],
+a[href*="assets"],
+a[href*="fee-tier"],
+a[href*="api-keys"],
+a[href*="settings"] {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
-    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease !important;
+    transition: color 0.2s ease !important;
 }
 
-/* STRATEGY 2: Direct child targeting for immediate effect */
-[class*="portfolio"] aside > a,
-[class*="portfolio"] nav > a,
-[class*="portfolio"] [class*="side"] > a,
-[class*="portfolio"] [class*="nav"] > a,
-[class*="portfolio"] aside > div > a,
-[class*="portfolio"] nav > div > a,
-[class*="portfolio"] [class*="side"] > div > a,
-[class*="portfolio"] [class*="nav"] > div > a,
-[class*="portfolio"] aside > ul > li > a,
-[class*="portfolio"] nav > ul > li > a {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    transition: all 0.2s ease !important;
-}
-
-/* STRATEGY 3: Universal hover - ANY link in portfolio sidebar on hover turns blue */
-[class*="portfolio"] aside a:hover,
-[class*="portfolio"] nav a:hover,
-[class*="portfolio"] [class*="side"] a:hover,
-[class*="portfolio"] [class*="nav"] a:hover,
-body:has([href*="portfolio"]) aside a:hover,
-body:has([href*="portfolio"]) nav a:hover {
-    color: #007BFF !important;
-    -webkit-text-fill-color: #007BFF !important;
-    background-color: rgba(0, 123, 255, 0.08) !important;
-}
-
-/* STRATEGY 4: Specific href targeting with hover for ALL portfolio sub-pages */
+/* Portfolio sidebar hover - bright blue */
 a[href*="overview"]:hover,
 a[href*="positions"]:hover,
 a[href*="orders"]:hover,
 a[href*="assets"]:hover,
-a[href*="fee"]:hover,
-a[href*="tier"]:hover,
-a[href*="api"]:hover,
-a[href*="keys"]:hover,
-a[href*="settings"]:hover,
-a[href*="setting"]:hover,
-a[href*="/portfolio/"]:hover {
+a[href*="fee-tier"]:hover,
+a[href*="api-keys"]:hover,
+a[href*="settings"]:hover {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
 }
 
-/* STRATEGY 5: Active state - ALL possible active indicators */
-[class*="portfolio"] aside a[aria-current="page"],
-[class*="portfolio"] nav a[aria-current="page"],
-[class*="portfolio"] [class*="side"] a[aria-current="page"],
-[class*="portfolio"] [class*="nav"] a[aria-current="page"],
-[class*="portfolio"] aside a.active,
-[class*="portfolio"] nav a.active,
-[class*="portfolio"] [class*="side"] a.active,
-[class*="portfolio"] [class*="nav"] a.active,
-[class*="portfolio"] aside a[data-state="active"],
-[class*="portfolio"] nav a[data-state="active"],
-[class*="portfolio"] [class*="side"] a[data-state="active"],
-[class*="portfolio"] [class*="nav"] a[data-state="active"],
-[class*="portfolio"] aside a[data-active="true"],
-[class*="portfolio"] nav a[data-active="true"],
-[class*="portfolio"] [class*="side"] a[data-active="true"],
-[class*="portfolio"] [class*="nav"] a[data-active="true"],
-[class*="portfolio"] aside a[aria-selected="true"],
-[class*="portfolio"] nav a[aria-selected="true"],
-[class*="portfolio"] [class*="side"] a[aria-selected="true"],
-[class*="portfolio"] [class*="nav"] a[aria-selected="true"],
-[class*="portfolio"] aside a.current,
-[class*="portfolio"] nav a.current,
-[class*="portfolio"] [class*="side"] a.current,
-[class*="portfolio"] [class*="nav"] a.current,
-[class*="portfolio"] aside a.selected,
-[class*="portfolio"] nav a.selected,
-[class*="portfolio"] [class*="side"] a.selected,
-[class*="portfolio"] [class*="nav"] a.selected {
-    color: #007BFF !important;
-    -webkit-text-fill-color: #007BFF !important;
-    background-color: rgba(0, 123, 255, 0.15) !important;
-    border-left: 3px solid #007BFF !important;
-    font-weight: 500 !important;
-}
-
-/* STRATEGY 6: Href-based active states for specific pages */
+/* Portfolio sidebar active - bright blue */
 a[href*="overview"][aria-current="page"],
 a[href*="positions"][aria-current="page"],
 a[href*="orders"][aria-current="page"],
 a[href*="assets"][aria-current="page"],
-a[href*="fee"][aria-current="page"],
-a[href*="tier"][aria-current="page"],
-a[href*="api"][aria-current="page"],
-a[href*="keys"][aria-current="page"],
+a[href*="fee-tier"][aria-current="page"],
+a[href*="api-keys"][aria-current="page"],
 a[href*="settings"][aria-current="page"],
-a[href*="setting"][aria-current="page"],
 a[href*="overview"].active,
 a[href*="positions"].active,
 a[href*="orders"].active,
 a[href*="assets"].active,
-a[href*="fee"].active,
-a[href*="tier"].active,
-a[href*="api"].active,
-a[href*="keys"].active,
-a[href*="settings"].active,
-a[href*="setting"].active,
-a[href*="/portfolio/"][aria-current="page"],
-a[href*="/portfolio/"].active {
+a[href*="fee-tier"].active,
+a[href*="api-keys"].active,
+a[href*="settings"].active {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
-    background-color: rgba(0, 123, 255, 0.15) !important;
-    border-left: 3px solid #007BFF !important;
 }
 
-/* STRATEGY 7: Universal child inheritance */
-[class*="portfolio"] aside a *,
-[class*="portfolio"] nav a *,
-[class*="portfolio"] [class*="side"] a *,
-[class*="portfolio"] [class*="nav"] a * {
+/* Portfolio sidebar icons - inherit color */
+a[href*="overview"] svg,
+a[href*="positions"] svg,
+a[href*="orders"] svg,
+a[href*="assets"] svg,
+a[href*="fee-tier"] svg,
+a[href*="api-keys"] svg,
+a[href*="settings"] svg,
+a[href*="overview"] span,
+a[href*="positions"] span,
+a[href*="orders"] span,
+a[href*="assets"] span,
+a[href*="fee-tier"] span,
+a[href*="api-keys"] span,
+a[href*="settings"] span {
     color: inherit !important;
     -webkit-text-fill-color: inherit !important;
     fill: currentColor !important;
-    transition: color 0.2s ease !important;
 }
 
-/* STRATEGY 8: Force blue on ALL children during hover */
-[class*="portfolio"] aside a:hover *,
-[class*="portfolio"] nav a:hover *,
-[class*="portfolio"] [class*="side"] a:hover *,
-[class*="portfolio"] [class*="nav"] a:hover * {
+/* Hover state for children */
+a[href*="overview"]:hover svg,
+a[href*="positions"]:hover svg,
+a[href*="orders"]:hover svg,
+a[href*="assets"]:hover svg,
+a[href*="fee-tier"]:hover svg,
+a[href*="api-keys"]:hover svg,
+a[href*="settings"]:hover svg,
+a[href*="overview"]:hover span,
+a[href*="positions"]:hover span,
+a[href*="orders"]:hover span,
+a[href*="assets"]:hover span,
+a[href*="fee-tier"]:hover span,
+a[href*="api-keys"]:hover span,
+a[href*="settings"]:hover span {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
     fill: #007BFF !important;
-}
-
-/* STRATEGY 9: Override any Orderly UI specific classes */
-[class*="portfolio"] .oui-text-base-contrast-36,
-[class*="portfolio"] .oui-text-base-contrast-54,
-[class*="portfolio"] .oui-text-base-contrast-72,
-[class*="portfolio"] [class*="text-gray"],
-[class*="portfolio"] [class*="text-neutral"],
-[class*="portfolio"] [class*="text-secondary"] {
-    transition: color 0.2s ease !important;
-}
-
-[class*="portfolio"] a:hover .oui-text-base-contrast-36,
-[class*="portfolio"] a:hover .oui-text-base-contrast-54,
-[class*="portfolio"] a:hover .oui-text-base-contrast-72,
-[class*="portfolio"] a:hover [class*="text-gray"],
-[class*="portfolio"] a:hover [class*="text-neutral"],
-[class*="portfolio"] a:hover [class*="text-secondary"] {
-    color: #007BFF !important;
-    -webkit-text-fill-color: #007BFF !important;
-}
-
-/* STRATEGY 10: Active overrides for Orderly classes */
-[class*="portfolio"] [aria-current="page"] .oui-text-base-contrast-36,
-[class*="portfolio"] [aria-current="page"] .oui-text-base-contrast-54,
-[class*="portfolio"] [aria-current="page"] .oui-text-base-contrast-72,
-[class*="portfolio"] .active .oui-text-base-contrast-36,
-[class*="portfolio"] .active .oui-text-base-contrast-54,
-[class*="portfolio"] .active .oui-text-base-contrast-72 {
-    color: #007BFF !important;
-    -webkit-text-fill-color: #007BFF !important;
 }
 
 /* 4. Market Stats Labels - Keep White */
@@ -373,17 +285,22 @@ button[class*="gradient-brand"] {
     border: none !important;
 }
 
-/* FIX: "Create account" button text color - ensure white text on buttons */
+/* FIX: "Create account" button text color */
 button,
 [role="button"],
-[type="button"] {
+[type="button"],
+[class*="button"],
+[class*="Button"] {
     color: inherit !important;
 }
 
-/* Specific fix for primary buttons */
+/* Specific fix for primary buttons to ensure white text */
 button[class*="primary"],
+button[class*="Primary"],
 button[class*="solid"],
-[class*="wallet"] {
+[class*="wallet"],
+[class*="create"],
+[class*="Create"] {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
 }
