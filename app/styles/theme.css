@@ -162,36 +162,45 @@ header nav .oui-group [data-active="true"] span {
     -webkit-background-clip: unset !important;
 }
 
-/* 3. PORTFOLIO SIDEBAR - SIMPLIFIED BROAD SELECTORS
-   Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings
-   Strategy: Use LESS specific selectors that will actually match */
+/* 3. PORTFOLIO SIDEBAR NAVIGATION
+   Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings */
 
-/* Portfolio page sidebar base - all links white */
+/* Base: All sidebar links white with transition */
 a[href*="overview"],
 a[href*="positions"],
 a[href*="orders"],
 a[href*="assets"],
 a[href*="fee-tier"],
 a[href*="api-keys"],
-a[href*="settings"] {
+a[href*="settings"],
+/* FIX: Add broader patterns for Fee tier and API Keys */
+a[href*="fee"],
+a[href*="tier"],
+a[href*="api"],
+a[href*="keys"] {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
     transition: color 0.2s ease !important;
 }
 
-/* Portfolio sidebar hover - bright blue */
+/* Hover: Bright blue for inactive items */
 a[href*="overview"]:hover,
 a[href*="positions"]:hover,
 a[href*="orders"]:hover,
 a[href*="assets"]:hover,
 a[href*="fee-tier"]:hover,
 a[href*="api-keys"]:hover,
-a[href*="settings"]:hover {
+a[href*="settings"]:hover,
+/* FIX: Add broader patterns for hover */
+a[href*="fee"]:hover,
+a[href*="tier"]:hover,
+a[href*="api"]:hover,
+a[href*="keys"]:hover {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
 }
 
-/* Portfolio sidebar active - bright blue */
+/* Active: Solid bright blue with higher specificity */
 a[href*="overview"][aria-current="page"],
 a[href*="positions"][aria-current="page"],
 a[href*="orders"][aria-current="page"],
@@ -205,12 +214,26 @@ a[href*="orders"].active,
 a[href*="assets"].active,
 a[href*="fee-tier"].active,
 a[href*="api-keys"].active,
-a[href*="settings"].active {
+a[href*="settings"].active,
+/* FIX: Add broader patterns for active state */
+a[href*="fee"][aria-current="page"],
+a[href*="tier"][aria-current="page"],
+a[href*="api"][aria-current="page"],
+a[href*="keys"][aria-current="page"],
+a[href*="fee"].active,
+a[href*="tier"].active,
+a[href*="api"].active,
+a[href*="keys"].active,
+/* FIX: Add data-state and data-active selectors */
+a[href*="fee-tier"][data-state="active"],
+a[href*="api-keys"][data-state="active"],
+a[href*="fee-tier"][data-active="true"],
+a[href*="api-keys"][data-active="true"] {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
 }
 
-/* Portfolio sidebar icons - inherit color */
+/* Child elements: Inherit color */
 a[href*="overview"] svg,
 a[href*="positions"] svg,
 a[href*="orders"] svg,
@@ -224,7 +247,16 @@ a[href*="orders"] span,
 a[href*="assets"] span,
 a[href*="fee-tier"] span,
 a[href*="api-keys"] span,
-a[href*="settings"] span {
+a[href*="settings"] span,
+/* FIX: Add broader patterns for children */
+a[href*="fee"] svg,
+a[href*="tier"] svg,
+a[href*="api"] svg,
+a[href*="keys"] svg,
+a[href*="fee"] span,
+a[href*="tier"] span,
+a[href*="api"] span,
+a[href*="keys"] span {
     color: inherit !important;
     -webkit-text-fill-color: inherit !important;
     fill: currentColor !important;
@@ -244,7 +276,34 @@ a[href*="orders"]:hover span,
 a[href*="assets"]:hover span,
 a[href*="fee-tier"]:hover span,
 a[href*="api-keys"]:hover span,
-a[href*="settings"]:hover span {
+a[href*="settings"]:hover span,
+/* FIX: Add broader patterns for hover children */
+a[href*="fee"]:hover svg,
+a[href*="tier"]:hover svg,
+a[href*="api"]:hover svg,
+a[href*="keys"]:hover svg,
+a[href*="fee"]:hover span,
+a[href*="tier"]:hover span,
+a[href*="api"]:hover span,
+a[href*="keys"]:hover span {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    fill: #007BFF !important;
+}
+
+/* FIX: Active state for children - ensure they turn blue too */
+a[href*="fee-tier"][aria-current="page"] span,
+a[href*="api-keys"][aria-current="page"] span,
+a[href*="fee-tier"].active span,
+a[href*="api-keys"].active span,
+a[href*="fee-tier"][data-state="active"] span,
+a[href*="api-keys"][data-state="active"] span,
+a[href*="fee-tier"][aria-current="page"] svg,
+a[href*="api-keys"][aria-current="page"] svg,
+a[href*="fee-tier"].active svg,
+a[href*="api-keys"].active svg,
+a[href*="fee-tier"][data-state="active"] svg,
+a[href*="api-keys"][data-state="active"] svg {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
     fill: #007BFF !important;
