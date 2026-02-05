@@ -162,7 +162,7 @@ header nav .oui-group [data-active="true"] span {
     -webkit-background-clip: unset !important;
 }
 
-/* 3. PORTFOLIO SIDEBAR NAVIGATION
+/* 3. PORTFOLIO SIDEBAR NAVIGATION - CORRECTED IMPLEMENTATION
    Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings */
 
 /* Base: All sidebar links white with transition */
@@ -172,35 +172,25 @@ a[href*="orders"],
 a[href*="assets"],
 a[href*="fee-tier"],
 a[href*="api-keys"],
-a[href*="settings"],
-/* FIX: Add broader patterns for Fee tier and API Keys */
-a[href*="fee"],
-a[href*="tier"],
-a[href*="api"],
-a[href*="keys"] {
+a[href*="settings"] {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
     transition: color 0.2s ease !important;
 }
 
-/* Hover: Bright blue for inactive items */
+/* Hover: Bright blue #007BFF for ALL inactive items */
 a[href*="overview"]:hover,
 a[href*="positions"]:hover,
 a[href*="orders"]:hover,
 a[href*="assets"]:hover,
 a[href*="fee-tier"]:hover,
 a[href*="api-keys"]:hover,
-a[href*="settings"]:hover,
-/* FIX: Add broader patterns for hover */
-a[href*="fee"]:hover,
-a[href*="tier"]:hover,
-a[href*="api"]:hover,
-a[href*="keys"]:hover {
+a[href*="settings"]:hover {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
 }
 
-/* Active: Solid bright blue with higher specificity */
+/* Active: Solid bright blue for selected items - ENHANCED SELECTORS */
 a[href*="overview"][aria-current="page"],
 a[href*="positions"][aria-current="page"],
 a[href*="orders"][aria-current="page"],
@@ -215,25 +205,26 @@ a[href*="assets"].active,
 a[href*="fee-tier"].active,
 a[href*="api-keys"].active,
 a[href*="settings"].active,
-/* FIX: Add broader patterns for active state */
-a[href*="fee"][aria-current="page"],
-a[href*="tier"][aria-current="page"],
-a[href*="api"][aria-current="page"],
-a[href*="keys"][aria-current="page"],
-a[href*="fee"].active,
-a[href*="tier"].active,
-a[href*="api"].active,
-a[href*="keys"].active,
-/* FIX: Add data-state and data-active selectors */
+/* FIX: Add data-state and data-active selectors for Orderly UI */
+a[href*="overview"][data-state="active"],
+a[href*="positions"][data-state="active"],
+a[href*="orders"][data-state="active"],
+a[href*="assets"][data-state="active"],
 a[href*="fee-tier"][data-state="active"],
 a[href*="api-keys"][data-state="active"],
+a[href*="settings"][data-state="active"],
+a[href*="overview"][data-active="true"],
+a[href*="positions"][data-active="true"],
+a[href*="orders"][data-active="true"],
+a[href*="assets"][data-active="true"],
 a[href*="fee-tier"][data-active="true"],
-a[href*="api-keys"][data-active="true"] {
+a[href*="api-keys"][data-active="true"],
+a[href*="settings"][data-active="true"] {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
 }
 
-/* Child elements: Inherit color */
+/* Child elements: Icons and text inherit color */
 a[href*="overview"] svg,
 a[href*="positions"] svg,
 a[href*="orders"] svg,
@@ -247,16 +238,7 @@ a[href*="orders"] span,
 a[href*="assets"] span,
 a[href*="fee-tier"] span,
 a[href*="api-keys"] span,
-a[href*="settings"] span,
-/* FIX: Add broader patterns for children */
-a[href*="fee"] svg,
-a[href*="tier"] svg,
-a[href*="api"] svg,
-a[href*="keys"] svg,
-a[href*="fee"] span,
-a[href*="tier"] span,
-a[href*="api"] span,
-a[href*="keys"] span {
+a[href*="settings"] span {
     color: inherit !important;
     -webkit-text-fill-color: inherit !important;
     fill: currentColor !important;
@@ -276,34 +258,70 @@ a[href*="orders"]:hover span,
 a[href*="assets"]:hover span,
 a[href*="fee-tier"]:hover span,
 a[href*="api-keys"]:hover span,
-a[href*="settings"]:hover span,
-/* FIX: Add broader patterns for hover children */
-a[href*="fee"]:hover svg,
-a[href*="tier"]:hover svg,
-a[href*="api"]:hover svg,
-a[href*="keys"]:hover svg,
-a[href*="fee"]:hover span,
-a[href*="tier"]:hover span,
-a[href*="api"]:hover span,
-a[href*="keys"]:hover span {
+a[href*="settings"]:hover span {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
     fill: #007BFF !important;
 }
 
-/* FIX: Active state for children - ensure they turn blue too */
+/* Active state for children - ENSURE BLUE COLOR ON ALL ACTIVE CHILDREN */
+a[href*="overview"][aria-current="page"] span,
+a[href*="positions"][aria-current="page"] span,
+a[href*="orders"][aria-current="page"] span,
+a[href*="assets"][aria-current="page"] span,
 a[href*="fee-tier"][aria-current="page"] span,
 a[href*="api-keys"][aria-current="page"] span,
+a[href*="settings"][aria-current="page"] span,
+a[href*="overview"].active span,
+a[href*="positions"].active span,
+a[href*="orders"].active span,
+a[href*="assets"].active span,
 a[href*="fee-tier"].active span,
 a[href*="api-keys"].active span,
+a[href*="settings"].active span,
+a[href*="overview"][data-state="active"] span,
+a[href*="positions"][data-state="active"] span,
+a[href*="orders"][data-state="active"] span,
+a[href*="assets"][data-state="active"] span,
 a[href*="fee-tier"][data-state="active"] span,
 a[href*="api-keys"][data-state="active"] span,
+a[href*="settings"][data-state="active"] span,
+a[href*="overview"][data-active="true"] span,
+a[href*="positions"][data-active="true"] span,
+a[href*="orders"][data-active="true"] span,
+a[href*="assets"][data-active="true"] span,
+a[href*="fee-tier"][data-active="true"] span,
+a[href*="api-keys"][data-active="true"] span,
+a[href*="settings"][data-active="true"] span,
+/* SVG icons too */
+a[href*="overview"][aria-current="page"] svg,
+a[href*="positions"][aria-current="page"] svg,
+a[href*="orders"][aria-current="page"] svg,
+a[href*="assets"][aria-current="page"] svg,
 a[href*="fee-tier"][aria-current="page"] svg,
 a[href*="api-keys"][aria-current="page"] svg,
+a[href*="settings"][aria-current="page"] svg,
+a[href*="overview"].active svg,
+a[href*="positions"].active svg,
+a[href*="orders"].active svg,
+a[href*="assets"].active svg,
 a[href*="fee-tier"].active svg,
 a[href*="api-keys"].active svg,
+a[href*="settings"].active svg,
+a[href*="overview"][data-state="active"] svg,
+a[href*="positions"][data-state="active"] svg,
+a[href*="orders"][data-state="active"] svg,
+a[href*="assets"][data-state="active"] svg,
 a[href*="fee-tier"][data-state="active"] svg,
-a[href*="api-keys"][data-state="active"] svg {
+a[href*="api-keys"][data-state="active"] svg,
+a[href*="settings"][data-state="active"] svg,
+a[href*="overview"][data-active="true"] svg,
+a[href*="positions"][data-active="true"] svg,
+a[href*="orders"][data-active="true"] svg,
+a[href*="assets"][data-active="true"] svg,
+a[href*="fee-tier"][data-active="true"] svg,
+a[href*="api-keys"][data-active="true"] svg,
+a[href*="settings"][data-active="true"] svg {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
     fill: #007BFF !important;
@@ -342,26 +360,6 @@ button[class*="gradient-brand"] {
     background-image: none !important;
     color: #ffffff !important;
     border: none !important;
-}
-
-/* FIX: "Create account" button text color */
-button,
-[role="button"],
-[type="button"],
-[class*="button"],
-[class*="Button"] {
-    color: inherit !important;
-}
-
-/* Specific fix for primary buttons to ensure white text */
-button[class*="primary"],
-button[class*="Primary"],
-button[class*="solid"],
-[class*="wallet"],
-[class*="create"],
-[class*="Create"] {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
 }
 
 /* 7. Trading Interface - Order Book/Last Trades Default Colors */
