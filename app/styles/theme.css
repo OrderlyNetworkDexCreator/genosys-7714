@@ -50,8 +50,8 @@
     --oui-gradient-success-end: 14 203 129;
     --oui-gradient-danger-start: 153 24 76;
     --oui-gradient-danger-end: 246 70 93;
-    --oui-gradient-brand-start: 131 175 240;
-    --oui-gradient-brand-end: 71 121 196;
+    --oui-gradient-brand-start: 59 130 246;
+    --oui-gradient-brand-end: 0 61 130;
     --oui-gradient-brand-stop-start: 0%;
     --oui-gradient-brand-stop-end: 100%;
     --oui-gradient-brand-angle: 90deg;
@@ -85,50 +85,341 @@ body {
    Genosys Exchange Custom Overrides
    ========================================= */
 
-/* 1. Navigation Headers (Trade, Portfolio, Leaderboard, Markets, Swap, Vaults) 
-   Override default gray to white. */
-.oui-group.oui-text-base-contrast-36 {
+/* 1. Main Header Navigation - Inactive/Normal Links White + Bright Blue Hover
+   Targets: Trade, Portfolio, Leaderboard, Markets, Swap, Vaults */
+header .oui-group.oui-text-base-contrast-36,
+header nav .oui-group,
+header nav .oui-group a,
+header .oui-nav .oui-group,
+header .oui-nav .oui-group a {
     color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transition: all 0.2s ease !important;
 }
 
-/* 1b. Active Navigation Links - Bright Blue Override
-   Change active links from gradient to solid bright blue. */
-.oui-text-primary-light,
-.oui-text-primary,
-.oui-gradient-brand-text,
-[data-state="active"] .oui-text-primary-light,
-[data-state="active"] .oui-text-primary,
-nav a[aria-current="page"],
-nav a.active,
-.oui-nav-link[data-active="true"],
-.oui-group[data-active="true"] {
+/* Hover effect for inactive header navigation items - HIGH SPECIFICITY */
+header nav .oui-group a:hover,
+header .oui-nav .oui-group a:hover,
+header nav .oui-group > a:hover,
+header .oui-nav .oui-group > a:hover,
+header nav .oui-group span:hover,
+header .oui-nav .oui-group span:hover,
+header .oui-group a:not([data-state="active"]):hover,
+header .oui-group a:not([data-active="true"]):hover,
+header .oui-nav .oui-group a:not([data-state="active"]):hover,
+header .oui-nav .oui-group a:not([data-active="true"]):hover,
+header .oui-group > *:not([data-state="active"]):hover,
+header .oui-group > *:not([data-active="true"]):hover {
     color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    opacity: 1 !important;
+}
+
+/* Ensure hover overrides any gradient text */
+header nav .oui-group a:hover .oui-gradient-brand-text,
+header .oui-nav .oui-group a:hover .oui-gradient-brand-text,
+header nav .oui-group a:hover .oui-text-primary,
+header .oui-nav .oui-group a:hover .oui-text-primary,
+header nav .oui-group a:hover span,
+header .oui-nav .oui-group a:hover span {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
     background: none !important;
+    background-image: none !important;
     background-clip: unset !important;
     -webkit-background-clip: unset !important;
+}
+
+/* 2. Main Header Navigation - Active Links Solid Bright Blue (#007BFF) NO GRADIENT
+   Targets: Trade, Portfolio, Leaderboard, Markets, Swap, Vaults */
+header nav .oui-group a[data-state="active"],
+header nav .oui-group a[data-active="true"],
+header nav .oui-group a[aria-current="page"],
+header .oui-nav .oui-group [data-state="active"],
+header .oui-nav .oui-group [data-active="true"] {
+    color: #007BFF !important;
+    background: none !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #007BFF !important;
+    pointer-events: none !important;
+}
+
+/* Remove gradient text effects from active header items */
+header nav .oui-group [data-state="active"] .oui-gradient-brand-text,
+header nav .oui-group [data-active="true"] .oui-gradient-brand-text,
+header nav .oui-group [data-state="active"] .oui-text-primary,
+header nav .oui-group [data-active="true"] .oui-text-primary,
+header nav .oui-group [data-state="active"] span,
+header nav .oui-group [data-active="true"] span {
+    color: #007BFF !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-text-fill-color: #007BFF !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+}
+
+/* 3. PORTFOLIO SIDEBAR NAVIGATION
+   Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings */
+
+/* Base: All sidebar links white with transition */
+a[href*="overview"],
+a[href*="positions"],
+a[href*="orders"],
+a[href*="assets"],
+a[href*="fee-tier"],
+a[href*="api-keys"],
+a[href*="settings"],
+/* FIX: Add broader patterns for Fee tier and API Keys */
+a[href*="fee"],
+a[href*="tier"],
+a[href*="api"],
+a[href*="keys"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transition: color 0.2s ease !important;
+}
+
+/* Hover: Bright blue for inactive items */
+a[href*="overview"]:hover,
+a[href*="positions"]:hover,
+a[href*="orders"]:hover,
+a[href*="assets"]:hover,
+a[href*="fee-tier"]:hover,
+a[href*="api-keys"]:hover,
+a[href*="settings"]:hover,
+/* FIX: Add broader patterns for hover */
+a[href*="fee"]:hover,
+a[href*="tier"]:hover,
+a[href*="api"]:hover,
+a[href*="keys"]:hover {
+    color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
 }
 
-/* 2. Market Stats Labels (24h change, Mark, Index, 24h volume, Pred. funding rate, Open interest)
-   Override default gray to white. */
-.oui-data-label.oui-text-base-contrast-36 {
+/* Active: Solid bright blue with higher specificity */
+a[href*="overview"][aria-current="page"],
+a[href*="positions"][aria-current="page"],
+a[href*="orders"][aria-current="page"],
+a[href*="assets"][aria-current="page"],
+a[href*="fee-tier"][aria-current="page"],
+a[href*="api-keys"][aria-current="page"],
+a[href*="settings"][aria-current="page"],
+a[href*="overview"].active,
+a[href*="positions"].active,
+a[href*="orders"].active,
+a[href*="assets"].active,
+a[href*="fee-tier"].active,
+a[href*="api-keys"].active,
+a[href*="settings"].active,
+/* FIX: Add broader patterns for active state */
+a[href*="fee"][aria-current="page"],
+a[href*="tier"][aria-current="page"],
+a[href*="api"][aria-current="page"],
+a[href*="keys"][aria-current="page"],
+a[href*="fee"].active,
+a[href*="tier"].active,
+a[href*="api"].active,
+a[href*="keys"].active,
+/* FIX: Add data-state and data-active selectors */
+a[href*="fee-tier"][data-state="active"],
+a[href*="api-keys"][data-state="active"],
+a[href*="fee-tier"][data-active="true"],
+a[href*="api-keys"][data-active="true"] {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+}
+
+/* Child elements: Inherit color */
+a[href*="overview"] svg,
+a[href*="positions"] svg,
+a[href*="orders"] svg,
+a[href*="assets"] svg,
+a[href*="fee-tier"] svg,
+a[href*="api-keys"] svg,
+a[href*="settings"] svg,
+a[href*="overview"] span,
+a[href*="positions"] span,
+a[href*="orders"] span,
+a[href*="assets"] span,
+a[href*="fee-tier"] span,
+a[href*="api-keys"] span,
+a[href*="settings"] span,
+/* FIX: Add broader patterns for children */
+a[href*="fee"] svg,
+a[href*="tier"] svg,
+a[href*="api"] svg,
+a[href*="keys"] svg,
+a[href*="fee"] span,
+a[href*="tier"] span,
+a[href*="api"] span,
+a[href*="keys"] span {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+    fill: currentColor !important;
+}
+
+/* Hover state for children */
+a[href*="overview"]:hover svg,
+a[href*="positions"]:hover svg,
+a[href*="orders"]:hover svg,
+a[href*="assets"]:hover svg,
+a[href*="fee-tier"]:hover svg,
+a[href*="api-keys"]:hover svg,
+a[href*="settings"]:hover svg,
+a[href*="overview"]:hover span,
+a[href*="positions"]:hover span,
+a[href*="orders"]:hover span,
+a[href*="assets"]:hover span,
+a[href*="fee-tier"]:hover span,
+a[href*="api-keys"]:hover span,
+a[href*="settings"]:hover span,
+/* FIX: Add broader patterns for hover children */
+a[href*="fee"]:hover svg,
+a[href*="tier"]:hover svg,
+a[href*="api"]:hover svg,
+a[href*="keys"]:hover svg,
+a[href*="fee"]:hover span,
+a[href*="tier"]:hover span,
+a[href*="api"]:hover span,
+a[href*="keys"]:hover span {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    fill: #007BFF !important;
+}
+
+/* FIX: Active state for children - ensure they turn blue too */
+a[href*="fee-tier"][aria-current="page"] span,
+a[href*="api-keys"][aria-current="page"] span,
+a[href*="fee-tier"].active span,
+a[href*="api-keys"].active span,
+a[href*="fee-tier"][data-state="active"] span,
+a[href*="api-keys"][data-state="active"] span,
+a[href*="fee-tier"][aria-current="page"] svg,
+a[href*="api-keys"][aria-current="page"] svg,
+a[href*="fee-tier"].active svg,
+a[href*="api-keys"].active svg,
+a[href*="fee-tier"][data-state="active"] svg,
+a[href*="api-keys"][data-state="active"] svg {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    fill: #007BFF !important;
+}
+
+/* 4. Market Stats Labels - Keep White */
+.oui-data-label.oui-text-base-contrast-36,
+[class*="data-label"][class*="text-base-contrast"] {
     color: #ffffff !important;
 }
 
-/* 3. Panel Headers (Order book, Last trades)
-   Override default gray to white for inactive tabs. */
-.oui-tab-trigger.oui-text-base-contrast-36 {
+/* 5. Panel Tabs (Order book, Last trades) - White color */
+.oui-tab-trigger.oui-text-base-contrast-36,
+[class*="tab-trigger"][class*="text-base-contrast-36"] {
     color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
 }
 
-/* 4. Connect Wallet Button
-   Style as bright blue background with white text. */
+.oui-tab-trigger[data-state="active"],
+[class*="tab-trigger"][data-state="active"] {
+    color: #ffffff !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* 6. Connect Wallet Button - Bright Blue Solid */
 .wallet-connect-button,
-button.oui-gradient-brand {
+button.oui-gradient-brand,
+[class*="wallet"][class*="connect"],
+button[class*="gradient-brand"] {
     background: #007BFF !important;
-    /* Bright Blue */
     background-color: #007BFF !important;
     background-image: none !important;
     color: #ffffff !important;
     border: none !important;
+}
+
+/* FIX: "Create account" button text color */
+button,
+[role="button"],
+[type="button"],
+[class*="button"],
+[class*="Button"] {
+    color: inherit !important;
+}
+
+/* Specific fix for primary buttons to ensure white text */
+button[class*="primary"],
+button[class*="Primary"],
+button[class*="solid"],
+[class*="wallet"],
+[class*="create"],
+[class*="Create"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* 7. Trading Interface - Order Book/Last Trades Default Colors */
+div[class*="order-book"] .oui-text-primary,
+div[class*="last-trades"] .oui-text-primary,
+div[class*="order-book"] .oui-text-primary-light,
+div[class*="last-trades"] .oui-text-primary-light {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+    background: transparent !important;
+}
+
+/* Order Book Column Headers - White */
+div[class*="order-book"] [class*="header"],
+div[class*="last-trades"] [class*="header"],
+div[class*="order-book"] th,
+div[class*="last-trades"] th {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Order Book Bid Prices - Green */
+div[class*="order-book"] [class*="bid"],
+div[class*="order-book"] [data-side="buy"],
+div[class*="last-trades"] [class*="buy"] {
+    color: #0ecb81 !important;
+    -webkit-text-fill-color: #0ecb81 !important;
+}
+
+/* Order Book Ask Prices - Red */
+div[class*="order-book"] [class*="ask"],
+div[class*="order-book"] [data-side="sell"],
+div[class*="last-trades"] [class*="sell"] {
+    color: #f6465d !important;
+    -webkit-text-fill-color: #f6465d !important;
+}
+
+/* 8. Markets Page - Restore Original Colors */
+main [class*="markets"] [data-state="active"],
+main [class*="markets"] [data-active="true"],
+main [class*="markets"] .oui-text-primary,
+main [class*="markets"] .oui-text-primary-light {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+    background: transparent !important;
+    background-image: none !important;
+}
+
+/* Markets page positive values - Green */
+main [class*="markets"] .text-emerald-500,
+main [class*="markets"] [class*="gainers"] {
+    color: #10b981 !important;
+    -webkit-text-fill-color: #10b981 !important;
+}
+
+/* Markets page negative values - Red */
+main [class*="markets"] .text-red-500,
+main [class*="markets"] [class*="losers"] {
+    color: #ef4444 !important;
+    -webkit-text-fill-color: #ef4444 !important;
 }
