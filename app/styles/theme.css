@@ -162,274 +162,148 @@ header nav .oui-group [data-active="true"] span {
     -webkit-background-clip: unset !important;
 }
 
-/* =========================================
-   3. PORTFOLIO SIDEBAR NAVIGATION - COMPLETE REIMPLEMENTATION
-   ========================================= */
+/* 3. PORTFOLIO SIDEBAR NAVIGATION
+   Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings */
 
-/* STRATEGY: Use universal sidebar scope with high-specificity overrides */
-
-/* SCOPE: Portfolio page sidebar container */
-[class*="portfolio"] aside,
-[class*="portfolio"] nav,
-body:has([href*="portfolio"]) aside,
-body:has([href*="portfolio"]) nav,
-[id*="portfolio"] aside,
-[id*="portfolio"] nav {
-    /* Ensure all links inside have transition capability */
-    --sidebar-transition: color 0.2s ease;
-}
-
-/* BASE: All anchor tags in Portfolio sidebar - WHITE with transition */
-[class*="portfolio"] aside a,
-[class*="portfolio"] nav a,
-body:has([href*="portfolio"]) aside a,
-body:has([href*="portfolio"]) nav a,
-[id*="portfolio"] aside a,
-[id*="portfolio"] nav a,
-[class*="portfolio"] [class*="sidebar"] a,
-[class*="portfolio"] [class*="side"] a,
-[class*="portfolio"] [class*="nav"] a {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    transition: color 0.2s ease, background-color 0.2s ease !important;
-}
-
-/* HOVER: Bright blue for ALL sidebar links when hovered and NOT active */
-[class*="portfolio"] aside a:hover:not([aria-current="page"]):not(.active):not([data-state="active"]):not([data-active="true"]),
-[class*="portfolio"] nav a:hover:not([aria-current="page"]):not(.active):not([data-state="active"]):not([data-active="true"]),
-body:has([href*="portfolio"]) aside a:hover:not([aria-current="page"]):not(.active):not([data-state="active"]):not([data-active="true"]),
-body:has([href*="portfolio"]) nav a:hover:not([aria-current="page"]):not(.active):not([data-state="active"]):not([data-active="true"]),
-[class*="portfolio"] [class*="sidebar"] a:hover:not([aria-current="page"]):not(.active):not([data-state="active"]):not([data-active="true"]),
-[class*="portfolio"] [class*="side"] a:hover:not([aria-current="page"]):not(.active):not([data-state="active"]):not([data-active="true"]) {
-    color: #007BFF !important;
-    -webkit-text-fill-color: #007BFF !important;
-    background-color: rgba(0, 123, 255, 0.08) !important;
-}
-
-/* SPECIFIC: Direct targeting by href for extra specificity - ALL items */
+/* Base: All sidebar links white with transition */
 a[href*="overview"],
 a[href*="positions"],
 a[href*="orders"],
 a[href*="assets"],
+a[href*="fee-tier"],
+a[href*="api-keys"],
+a[href*="settings"],
+/* FIX: Add broader patterns for Fee tier and API Keys */
 a[href*="fee"],
 a[href*="tier"],
 a[href*="api"],
-a[href*="keys"],
-a[href*="settings"],
-a[href*="setting"] {
+a[href*="keys"] {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
-    transition: all 0.2s ease !important;
+    transition: color 0.2s ease !important;
 }
 
-/* SPECIFIC HOVER: Direct href targeting - ALL items */
+/* Hover: Bright blue for inactive items */
 a[href*="overview"]:hover,
 a[href*="positions"]:hover,
 a[href*="orders"]:hover,
 a[href*="assets"]:hover,
+a[href*="fee-tier"]:hover,
+a[href*="api-keys"]:hover,
+a[href*="settings"]:hover,
+/* FIX: Add broader patterns for hover */
 a[href*="fee"]:hover,
 a[href*="tier"]:hover,
 a[href*="api"]:hover,
-a[href*="keys"]:hover,
-a[href*="settings"]:hover,
-a[href*="setting"]:hover {
+a[href*="keys"]:hover {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
 }
 
-/* ACTIVE STATE: Comprehensive coverage for ALL active indicators */
-[class*="portfolio"] aside a[aria-current="page"],
-[class*="portfolio"] nav a[aria-current="page"],
-body:has([href*="portfolio"]) aside a[aria-current="page"],
-body:has([href*="portfolio"]) nav a[aria-current="page"],
-[class*="portfolio"] aside a.active,
-[class*="portfolio"] nav a.active,
-[class*="portfolio"] aside a[data-state="active"],
-[class*="portfolio"] nav a[data-state="active"],
-[class*="portfolio"] aside a[data-active="true"],
-[class*="portfolio"] nav a[data-active="true"],
-[class*="portfolio"] [class*="sidebar"] a[aria-current="page"],
-[class*="portfolio"] [class*="side"] a[aria-current="page"],
+/* Active: Solid bright blue with higher specificity */
 a[href*="overview"][aria-current="page"],
 a[href*="positions"][aria-current="page"],
 a[href*="orders"][aria-current="page"],
 a[href*="assets"][aria-current="page"],
-a[href*="fee"][aria-current="page"],
-a[href*="tier"][aria-current="page"],
-a[href*="api"][aria-current="page"],
-a[href*="keys"][aria-current="page"],
+a[href*="fee-tier"][aria-current="page"],
+a[href*="api-keys"][aria-current="page"],
 a[href*="settings"][aria-current="page"],
-a[href*="setting"][aria-current="page"],
 a[href*="overview"].active,
 a[href*="positions"].active,
 a[href*="orders"].active,
 a[href*="assets"].active,
+a[href*="fee-tier"].active,
+a[href*="api-keys"].active,
+a[href*="settings"].active,
+/* FIX: Add broader patterns for active state */
+a[href*="fee"][aria-current="page"],
+a[href*="tier"][aria-current="page"],
+a[href*="api"][aria-current="page"],
+a[href*="keys"][aria-current="page"],
 a[href*="fee"].active,
 a[href*="tier"].active,
 a[href*="api"].active,
 a[href*="keys"].active,
-a[href*="settings"].active,
-a[href*="setting"].active,
-a[href*="overview"][data-state="active"],
-a[href*="positions"][data-state="active"],
-a[href*="orders"][data-state="active"],
-a[href*="assets"][data-state="active"],
-a[href*="fee"][data-state="active"],
-a[href*="tier"][data-state="active"],
-a[href*="api"][data-state="active"],
-a[href*="keys"][data-state="active"],
-a[href*="settings"][data-state="active"],
-a[href*="setting"][data-state="active"],
-a[href*="overview"][data-active="true"],
-a[href*="positions"][data-active="true"],
-a[href*="orders"][data-active="true"],
-a[href*="assets"][data-active="true"],
-a[href*="fee"][data-active="true"],
-a[href*="tier"][data-active="true"],
-a[href*="api"][data-active="true"],
-a[href*="keys"][data-active="true"],
-a[href*="settings"][data-active="true"],
-a[href*="setting"][data-active="true"] {
+/* FIX: Add data-state and data-active selectors */
+a[href*="fee-tier"][data-state="active"],
+a[href*="api-keys"][data-state="active"],
+a[href*="fee-tier"][data-active="true"],
+a[href*="api-keys"][data-active="true"] {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
-    background-color: rgba(0, 123, 255, 0.12) !important;
-    border-left: 2px solid #007BFF !important;
 }
 
-/* CHILD ELEMENTS: Universal inheritance for icons and text */
-[class*="portfolio"] aside a svg,
-[class*="portfolio"] nav a svg,
-[class*="portfolio"] aside a span,
-[class*="portfolio"] nav a span,
+/* Child elements: Inherit color */
 a[href*="overview"] svg,
 a[href*="positions"] svg,
 a[href*="orders"] svg,
 a[href*="assets"] svg,
-a[href*="fee"] svg,
-a[href*="tier"] svg,
-a[href*="api"] svg,
-a[href*="keys"] svg,
+a[href*="fee-tier"] svg,
+a[href*="api-keys"] svg,
 a[href*="settings"] svg,
-a[href*="setting"] svg,
 a[href*="overview"] span,
 a[href*="positions"] span,
 a[href*="orders"] span,
 a[href*="assets"] span,
+a[href*="fee-tier"] span,
+a[href*="api-keys"] span,
+a[href*="settings"] span,
+/* FIX: Add broader patterns for children */
+a[href*="fee"] svg,
+a[href*="tier"] svg,
+a[href*="api"] svg,
+a[href*="keys"] svg,
 a[href*="fee"] span,
 a[href*="tier"] span,
 a[href*="api"] span,
-a[href*="keys"] span,
-a[href*="settings"] span,
-a[href*="setting"] span {
+a[href*="keys"] span {
     color: inherit !important;
     -webkit-text-fill-color: inherit !important;
     fill: currentColor !important;
-    transition: color 0.2s ease, fill 0.2s ease !important;
 }
 
-/* HOVER CHILDREN: Force blue on all nested elements during hover */
-[class*="portfolio"] aside a:hover:not([aria-current="page"]):not(.active):not([data-state="active"]):not([data-active="true"]) svg,
-[class*="portfolio"] aside a:hover:not([aria-current="page"]):not(.active):not([data-state="active"]):not([data-active="true"]) span,
-[class*="portfolio"] nav a:hover:not([aria-current="page"]):not(.active):not([data-state="active"]):not([data-active="true"]) svg,
-[class*="portfolio"] nav a:hover:not([aria-current="page"]):not(.active):not([data-state="active"]):not([data-active="true"]) span,
+/* Hover state for children */
 a[href*="overview"]:hover svg,
 a[href*="positions"]:hover svg,
 a[href*="orders"]:hover svg,
 a[href*="assets"]:hover svg,
-a[href*="fee"]:hover svg,
-a[href*="tier"]:hover svg,
-a[href*="api"]:hover svg,
-a[href*="keys"]:hover svg,
+a[href*="fee-tier"]:hover svg,
+a[href*="api-keys"]:hover svg,
 a[href*="settings"]:hover svg,
-a[href*="setting"]:hover svg,
 a[href*="overview"]:hover span,
 a[href*="positions"]:hover span,
 a[href*="orders"]:hover span,
 a[href*="assets"]:hover span,
+a[href*="fee-tier"]:hover span,
+a[href*="api-keys"]:hover span,
+a[href*="settings"]:hover span,
+/* FIX: Add broader patterns for hover children */
+a[href*="fee"]:hover svg,
+a[href*="tier"]:hover svg,
+a[href*="api"]:hover svg,
+a[href*="keys"]:hover svg,
 a[href*="fee"]:hover span,
 a[href*="tier"]:hover span,
 a[href*="api"]:hover span,
-a[href*="keys"]:hover span,
-a[href*="settings"]:hover span,
-a[href*="setting"]:hover span {
+a[href*="keys"]:hover span {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
     fill: #007BFF !important;
 }
 
-/* ACTIVE CHILDREN: Force blue on all nested elements when active */
-[class*="portfolio"] aside a[aria-current="page"] svg,
-[class*="portfolio"] aside a[aria-current="page"] span,
-[class*="portfolio"] nav a[aria-current="page"] svg,
-[class*="portfolio"] nav a[aria-current="page"] span,
-[class*="portfolio"] aside a.active svg,
-[class*="portfolio"] aside a.active span,
-[class*="portfolio"] nav a.active svg,
-[class*="portfolio"] nav a.active span,
-[class*="portfolio"] aside a[data-state="active"] svg,
-[class*="portfolio"] aside a[data-state="active"] span,
-[class*="portfolio"] nav a[data-state="active"] svg,
-[class*="portfolio"] nav a[data-state="active"] span,
-a[href*="overview"][aria-current="page"] svg,
-a[href*="overview"][aria-current="page"] span,
-a[href*="positions"][aria-current="page"] svg,
-a[href*="positions"][aria-current="page"] span,
-a[href*="orders"][aria-current="page"] svg,
-a[href*="orders"][aria-current="page"] span,
-a[href*="assets"][aria-current="page"] svg,
-a[href*="assets"][aria-current="page"] span,
-a[href*="fee"][aria-current="page"] svg,
-a[href*="fee"][aria-current="page"] span,
-a[href*="tier"][aria-current="page"] svg,
-a[href*="tier"][aria-current="page"] span,
-a[href*="api"][aria-current="page"] svg,
-a[href*="api"][aria-current="page"] span,
-a[href*="keys"][aria-current="page"] svg,
-a[href*="keys"][aria-current="page"] span,
-a[href*="settings"][aria-current="page"] svg,
-a[href*="settings"][aria-current="page"] span,
-a[href*="setting"][aria-current="page"] svg,
-a[href*="setting"][aria-current="page"] span,
-a[href*="overview"].active svg,
-a[href*="overview"].active span,
-a[href*="positions"].active svg,
-a[href*="positions"].active span,
-a[href*="orders"].active svg,
-a[href*="orders"].active span,
-a[href*="assets"].active svg,
-a[href*="assets"].active span,
-a[href*="fee"].active svg,
-a[href*="fee"].active span,
-a[href*="tier"].active svg,
-a[href*="tier"].active span,
-a[href*="api"].active svg,
-a[href*="api"].active span,
-a[href*="keys"].active svg,
-a[href*="keys"].active span,
-a[href*="settings"].active svg,
-a[href*="settings"].active span,
-a[href*="setting"].active svg,
-a[href*="setting"].active span,
-a[href*="overview"][data-state="active"] svg,
-a[href*="overview"][data-state="active"] span,
-a[href*="positions"][data-state="active"] svg,
-a[href*="positions"][data-state="active"] span,
-a[href*="orders"][data-state="active"] svg,
-a[href*="orders"][data-state="active"] span,
-a[href*="assets"][data-state="active"] svg,
-a[href*="assets"][data-state="active"] span,
-a[href*="fee"][data-state="active"] svg,
-a[href*="fee"][data-state="active"] span,
-a[href*="tier"][data-state="active"] svg,
-a[href*="tier"][data-state="active"] span,
-a[href*="api"][data-state="active"] svg,
-a[href*="api"][data-state="active"] span,
-a[href*="keys"][data-state="active"] svg,
-a[href*="keys"][data-state="active"] span,
-a[href*="settings"][data-state="active"] svg,
-a[href*="settings"][data-state="active"] span,
-a[href*="setting"][data-state="active"] svg,
-a[href*="setting"][data-state="active"] span {
+/* FIX: Active state for children - ensure they turn blue too */
+a[href*="fee-tier"][aria-current="page"] span,
+a[href*="api-keys"][aria-current="page"] span,
+a[href*="fee-tier"].active span,
+a[href*="api-keys"].active span,
+a[href*="fee-tier"][data-state="active"] span,
+a[href*="api-keys"][data-state="active"] span,
+a[href*="fee-tier"][aria-current="page"] svg,
+a[href*="api-keys"][aria-current="page"] svg,
+a[href*="fee-tier"].active svg,
+a[href*="api-keys"].active svg,
+a[href*="fee-tier"][data-state="active"] svg,
+a[href*="api-keys"][data-state="active"] svg {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
     fill: #007BFF !important;
@@ -468,6 +342,26 @@ button[class*="gradient-brand"] {
     background-image: none !important;
     color: #ffffff !important;
     border: none !important;
+}
+
+/* FIX: "Create account" button text color */
+button,
+[role="button"],
+[type="button"],
+[class*="button"],
+[class*="Button"] {
+    color: inherit !important;
+}
+
+/* Specific fix for primary buttons to ensure white text */
+button[class*="primary"],
+button[class*="Primary"],
+button[class*="solid"],
+[class*="wallet"],
+[class*="create"],
+[class*="Create"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
 }
 
 /* 7. Trading Interface - Order Book/Last Trades Default Colors */
