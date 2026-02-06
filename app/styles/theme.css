@@ -100,16 +100,16 @@ header .oui-nav .oui-group a {
 /* Hover effect for inactive header navigation items - HIGH SPECIFICITY */
 header nav .oui-group a:hover,
 header .oui-nav .oui-group a:hover,
-header nav .oui-group > a:hover,
-header .oui-nav .oui-group > a:hover,
+header nav .oui-group>a:hover,
+header .oui-nav .oui-group>a:hover,
 header nav .oui-group span:hover,
 header .oui-nav .oui-group span:hover,
 header .oui-group a:not([data-state="active"]):hover,
 header .oui-group a:not([data-active="true"]):hover,
 header .oui-nav .oui-group a:not([data-state="active"]):hover,
 header .oui-nav .oui-group a:not([data-active="true"]):hover,
-header .oui-group > *:not([data-state="active"]):hover,
-header .oui-group > *:not([data-active="true"]):hover {
+header .oui-group>*:not([data-state="active"]):hover,
+header .oui-group>*:not([data-active="true"]):hover {
     color: #007BFF !important;
     -webkit-text-fill-color: #007BFF !important;
     opacity: 1 !important;
@@ -437,55 +437,21 @@ button[class*="gradient-brand"] {
     border: none !important;
 }
 
-/* NEW: Deposit Button - Bright Blue Background to match Connect Wallet */
-/* Targeting by text content, class patterns, and common button attributes */
-button:has-text("Deposit"),
+/* 6a. Deposit Button - Bright Blue Solid (matching Connect Wallet) */
 button[class*="deposit"],
 button[class*="Deposit"],
-[class*="deposit"],
-[class*="Deposit"],
-button[aria-label*="Deposit"],
-button[data-testid*="deposit"],
-a:has-text("Deposit"),
+[class*="deposit"][class*="button"],
+[class*="Deposit"][class*="button"],
 a[class*="deposit"],
 a[class*="Deposit"],
-/* Generic button targeting in Portfolio context */
-[class*="portfolio"] button:has-text("Deposit"),
-[class*="portfolio"] button[class*="primary"]:first-of-type,
-/* Target by icon + text pattern */
-button svg + span:contains("Deposit"),
-button:has(svg):has-text("Deposit") {
+header button:has-text("Deposit"),
+header [role="button"]:has-text("Deposit") {
     background: #007BFF !important;
     background-color: #007BFF !important;
     background-image: none !important;
     color: #ffffff !important;
-    border: none !important;
-    border-radius: 6px !important;
-}
-
-/* Ensure Deposit button text is white */
-button:has-text("Deposit") span,
-button[class*="deposit"] span,
-button[class*="Deposit"] span,
-[class*="deposit"] span,
-[class*="Deposit"] span,
-button[aria-label*="Deposit"] span,
-button[data-testid*="deposit"] span {
-    color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
-}
-
-/* Deposit button hover state */
-button:has-text("Deposit"):hover,
-button[class*="deposit"]:hover,
-button[class*="Deposit"]:hover,
-[class*="deposit"]:hover,
-[class*="Deposit"]:hover,
-button[aria-label*="Deposit"]:hover,
-button[data-testid*="deposit"]:hover {
-    background: #1a8cff !important;
-    background-color: #1a8cff !important;
-    color: #ffffff !important;
+    border: none !important;
 }
 
 /* FIX: "Create account" button text color */
