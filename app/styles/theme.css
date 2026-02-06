@@ -1,100 +1,518 @@
 :root {
-  --oui-font-family: 'Manrope', sans-serif;
-  --oui-font-size-base: 16px;
-
-  /* colors */
-  --oui-color-primary: 176 132 233;
-  --oui-color-primary-light: 213 190 244;
-  --oui-color-primary-darken: 137 76 209;
-  --oui-color-primary-contrast: 255 255 255;
-
-  --oui-color-link: 189 107 237;
-  --oui-color-link-light: 217 152 250;
-
-  --oui-color-secondary: 255 255 255;
-  --oui-color-tertiary: 218 218 218;
-  --oui-color-quaternary: 218 218 218;
-
-  --oui-color-danger: 245 97 139;
-  --oui-color-danger-light: 250 167 188;
-  --oui-color-danger-darken: 237 72 122;
-  --oui-color-danger-contrast: 255 255 255;
-
-  --oui-color-success: 41 233 169;
-  --oui-color-success-light: 101 240 194;
-  --oui-color-success-darken: 0 161 120;
-  --oui-color-success-contrast: 255 255 255;
-
-  --oui-color-warning: 255 209 70;
-  --oui-color-warning-light: 255 229 133;
-  --oui-color-warning-darken: 255 152 0;
-  --oui-color-warning-contrast: 255 255 255;
-
-  --oui-color-fill: 36 32 47;
-  --oui-color-fill-active: 40 46 58;
-
-  --oui-color-base-1: 93 83 123;
-  --oui-color-base-2: 81 72 107;
-  --oui-color-base-3: 68 61 69;
-  --oui-color-base-4: 57 52 74;
-  --oui-color-base-5: 51 46 66;
-  --oui-color-base-6: 43 38 56;
-  --oui-color-base-7: 36 32 47;
-  --oui-color-base-8: 29 26 38;
-  --oui-color-base-9: 22 20 28;
-  --oui-color-base-10: 14 13 18;
-
-  --oui-color-base-foreground: 255 255 255;
-  --oui-color-line: 255 255 255;
-
-  --oui-color-trading-loss: 245 97 139;
-  --oui-color-trading-loss-contrast: 255 255 255;
-  --oui-color-trading-profit: 41 233 169;
-  --oui-color-trading-profit-contrast: 255 255 255;
-
-  /* gradients */
-  --oui-gradient-primary-start: 40 0 97;
-  --oui-gradient-primary-end: 189 107 237;
-
-  --oui-gradient-secondary-start: 81 42 121;
-  --oui-gradient-secondary-end: 176 132 233;
-
-  --oui-gradient-success-start: 1 83 68;
-  --oui-gradient-success-end: 41 223 169;
-
-  --oui-gradient-danger-start: 153 24 76;
-  --oui-gradient-danger-end: 245 97 139;
-
-  --oui-gradient-brand-start: 231 219 249;
-  --oui-gradient-brand-end: 159 107 225;
-  --oui-gradient-brand-stop-start: 6.62%;
-  --oui-gradient-brand-stop-end: 86.5%;
-  --oui-gradient-brand-angle: 17.44deg;
-
-  --oui-gradient-warning-start: 152 58 8;
-  --oui-gradient-warning-end: 255 209 70;
-
-  --oui-gradient-neutral-start: 27 29 24;
-  --oui-gradient-neutral-end: 38 41 46;
-
-  /* rounded */
-  --oui-rounded-sm: 2px;
-  --oui-rounded: 4px;
-  --oui-rounded-md: 6px;
-  --oui-rounded-lg: 8px;
-  --oui-rounded-xl: 12px;
-  --oui-rounded-2xl: 16px;
-  --oui-rounded-full: 9999px;
-
-  /* spacing */
-  --oui-spacing-xs: 20rem;
-  --oui-spacing-sm: 22.5rem;
-  --oui-spacing-md: 26.25rem;
-  --oui-spacing-lg: 30rem;
-  --oui-spacing-xl: 33.75rem;
+    --oui-font-family: 'Manrope', sans-serif;
+    --oui-font-size-base: 16px;
+    /* colors */
+    --oui-color-primary: 59 130 246;
+    --oui-color-primary-light: 88 166 255;
+    --oui-color-primary-darken: 31 111 235;
+    --oui-color-primary-contrast: 255 255 255;
+    --oui-color-link: 88 166 255;
+    --oui-color-link-light: 121 192 255;
+    --oui-color-secondary: 255 255 255;
+    --oui-color-tertiary: 255 255 255;
+    --oui-color-quaternary: 255 255 255;
+    --oui-color-danger: 248 81 73;
+    --oui-color-danger-light: 246 70 93;
+    --oui-color-danger-darken: 218 54 51;
+    --oui-color-danger-contrast: 255 255 255;
+    --oui-color-success: 14 203 129;
+    --oui-color-success-light: 63 185 80;
+    --oui-color-success-darken: 46 160 67;
+    --oui-color-success-contrast: 255 255 255;
+    --oui-color-warning: 210 153 34;
+    --oui-color-warning-light: 255 209 70;
+    --oui-color-warning-darken: 152 58 8;
+    --oui-color-warning-contrast: 255 255 255;
+    --oui-color-fill: 10 14 19;
+    --oui-color-fill-active: 26 31 38;
+    --oui-color-base-1: 59 66 75;
+    --oui-color-base-2: 48 54 61;
+    --oui-color-base-3: 33 38 45;
+    --oui-color-base-4: 26 31 38;
+    --oui-color-base-5: 48 54 61;
+    --oui-color-base-6: 33 38 45;
+    --oui-color-base-7: 26 31 38;
+    --oui-color-base-8: 21 27 46;
+    --oui-color-base-9: 17 20 24;
+    --oui-color-base-10: 10 14 19;
+    --oui-color-base-foreground: 255 255 255;
+    --oui-color-line: 48 54 61;
+    --oui-color-trading-loss: 246 70 93;
+    --oui-color-trading-loss-contrast: 255 255 255;
+    --oui-color-trading-profit: 14 203 129;
+    --oui-color-trading-profit-contrast: 255 255 255;
+    /* gradients */
+    --oui-gradient-primary-start: 59 130 246;
+    --oui-gradient-primary-end: 0 61 130;
+    --oui-gradient-secondary-start: 26 32 48;
+    --oui-gradient-secondary-end: 21 27 46;
+    --oui-gradient-success-start: 1 83 68;
+    --oui-gradient-success-end: 14 203 129;
+    --oui-gradient-danger-start: 153 24 76;
+    --oui-gradient-danger-end: 246 70 93;
+    --oui-gradient-brand-start: 59 130 246;
+    --oui-gradient-brand-end: 0 61 130;
+    --oui-gradient-brand-stop-start: 0%;
+    --oui-gradient-brand-stop-end: 100%;
+    --oui-gradient-brand-angle: 90deg;
+    --oui-gradient-warning-start: 152 58 8;
+    --oui-gradient-warning-end: 210 153 34;
+    --oui-gradient-neutral-start: 10 14 26;
+    --oui-gradient-neutral-end: 21 27 46;
+    /* rounded */
+    --oui-rounded-sm: 2px;
+    --oui-rounded: 4px;
+    --oui-rounded-md: 6px;
+    --oui-rounded-lg: 8px;
+    --oui-rounded-xl: 12px;
+    --oui-rounded-2xl: 16px;
+    --oui-rounded-full: 9999px;
+    /* spacing */
+    --oui-spacing-xs: 20rem;
+    --oui-spacing-sm: 22.5rem;
+    --oui-spacing-md: 26.25rem;
+    --oui-spacing-lg: 30rem;
+    --oui-spacing-xl: 33.75rem;
 }
 
-html, body {
-  font-family: 'Manrope', sans-serif !important;
-  font-size: 16px !important;
+html,
+body {
+    font-family: 'Manrope', sans-serif !important;
+    font-size: 16px !important;
+}
+
+/* =========================================
+   Genosys Exchange Custom Overrides
+   ========================================= */
+
+/* 1. Main Header Navigation - Inactive/Normal Links White + Bright Blue Hover
+   Targets: Trade, Portfolio, Leaderboard, Markets, Swap, Vaults */
+header .oui-group.oui-text-base-contrast-36,
+header nav .oui-group,
+header nav .oui-group a,
+header .oui-nav .oui-group,
+header .oui-nav .oui-group a {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Hover effect for inactive header navigation items - HIGH SPECIFICITY */
+header nav .oui-group a:hover,
+header .oui-nav .oui-group a:hover,
+header nav .oui-group > a:hover,
+header .oui-nav .oui-group > a:hover,
+header nav .oui-group span:hover,
+header .oui-nav .oui-group span:hover,
+header .oui-group a:not([data-state="active"]):hover,
+header .oui-group a:not([data-active="true"]):hover,
+header .oui-nav .oui-group a:not([data-state="active"]):hover,
+header .oui-nav .oui-group a:not([data-active="true"]):hover,
+header .oui-group > *:not([data-state="active"]):hover,
+header .oui-group > *:not([data-active="true"]):hover {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    opacity: 1 !important;
+}
+
+/* Ensure hover overrides any gradient text */
+header nav .oui-group a:hover .oui-gradient-brand-text,
+header .oui-nav .oui-group a:hover .oui-gradient-brand-text,
+header nav .oui-group a:hover .oui-text-primary,
+header .oui-nav .oui-group a:hover .oui-text-primary,
+header nav .oui-group a:hover span,
+header .oui-nav .oui-group a:hover span {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    background: none !important;
+    background-image: none !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+}
+
+/* 2. Main Header Navigation - Active Links Solid Bright Blue (#007BFF) NO GRADIENT
+   Targets: Trade, Portfolio, Leaderboard, Markets, Swap, Vaults */
+header nav .oui-group a[data-state="active"],
+header nav .oui-group a[data-active="true"],
+header nav .oui-group a[aria-current="page"],
+header .oui-nav .oui-group [data-state="active"],
+header .oui-nav .oui-group [data-active="true"] {
+    color: #007BFF !important;
+    background: none !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #007BFF !important;
+    pointer-events: none !important;
+}
+
+/* Remove gradient text effects from active header items */
+header nav .oui-group [data-state="active"] .oui-gradient-brand-text,
+header nav .oui-group [data-active="true"] .oui-gradient-brand-text,
+header nav .oui-group [data-state="active"] .oui-text-primary,
+header nav .oui-group [data-active="true"] .oui-text-primary,
+header nav .oui-group [data-state="active"] span,
+header nav .oui-group [data-active="true"] span {
+    color: #007BFF !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-text-fill-color: #007BFF !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+}
+
+/* 3. PORTFOLIO SIDEBAR NAVIGATION - LIGHT GREY INACTIVE + BRIGHT BLUE ACTIVE
+   Targets: Overview, Positions, Orders, Assets, Fee tier, API Keys, Settings */
+
+/* CHANGED: Base color from #ffffff to #c3c3c3 (light grey) for inactive items */
+a[href*="overview"],
+a[href*="positions"],
+a[href*="orders"],
+a[href*="assets"],
+a[href*="fee-tier"],
+a[href*="api-keys"],
+a[href*="settings"],
+/* Broader patterns for Fee tier and API Keys to ensure matching */
+a[href*="fee"],
+a[href*="tier"],
+a[href*="api"],
+a[href*="keys"] {
+    color: #c3c3c3 !important;
+    -webkit-text-fill-color: #c3c3c3 !important;
+    transition: color 0.2s ease !important;
+}
+
+/* Hover: Bright blue #007BFF for all items */
+a[href*="overview"]:hover,
+a[href*="positions"]:hover,
+a[href*="orders"]:hover,
+a[href*="assets"]:hover,
+a[href*="fee-tier"]:hover,
+a[href*="api-keys"]:hover,
+a[href*="settings"]:hover,
+a[href*="fee"]:hover,
+a[href*="tier"]:hover,
+a[href*="api"]:hover,
+a[href*="keys"]:hover {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+}
+
+/* Active: Solid bright blue - COMPREHENSIVE SELECTORS FOR ALL ACTIVE STATES */
+a[href*="overview"][aria-current="page"],
+a[href*="positions"][aria-current="page"],
+a[href*="orders"][aria-current="page"],
+a[href*="assets"][aria-current="page"],
+a[href*="fee-tier"][aria-current="page"],
+a[href*="api-keys"][aria-current="page"],
+a[href*="settings"][aria-current="page"],
+a[href*="overview"].active,
+a[href*="positions"].active,
+a[href*="orders"].active,
+a[href*="assets"].active,
+a[href*="fee-tier"].active,
+a[href*="api-keys"].active,
+a[href*="settings"].active,
+/* Data attribute selectors for Orderly UI */
+a[href*="overview"][data-state="active"],
+a[href*="positions"][data-state="active"],
+a[href*="orders"][data-state="active"],
+a[href*="assets"][data-state="active"],
+a[href*="fee-tier"][data-state="active"],
+a[href*="api-keys"][data-state="active"],
+a[href*="settings"][data-state="active"],
+a[href*="overview"][data-active="true"],
+a[href*="positions"][data-active="true"],
+a[href*="orders"][data-active="true"],
+a[href*="assets"][data-active="true"],
+a[href*="fee-tier"][data-active="true"],
+a[href*="api-keys"][data-active="true"],
+a[href*="settings"][data-active="true"],
+/* Broader patterns for active states */
+a[href*="fee"][aria-current="page"],
+a[href*="tier"][aria-current="page"],
+a[href*="api"][aria-current="page"],
+a[href*="keys"][aria-current="page"],
+a[href*="fee"].active,
+a[href*="tier"].active,
+a[href*="api"].active,
+a[href*="keys"].active,
+a[href*="fee"][data-state="active"],
+a[href*="tier"][data-state="active"],
+a[href*="api"][data-state="active"],
+a[href*="keys"][data-state="active"],
+a[href*="fee"][data-active="true"],
+a[href*="tier"][data-active="true"],
+a[href*="api"][data-active="true"],
+a[href*="keys"][data-active="true"] {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+}
+
+/* Child elements: Inherit color from parent */
+a[href*="overview"] svg,
+a[href*="positions"] svg,
+a[href*="orders"] svg,
+a[href*="assets"] svg,
+a[href*="fee-tier"] svg,
+a[href*="api-keys"] svg,
+a[href*="settings"] svg,
+a[href*="overview"] span,
+a[href*="positions"] span,
+a[href*="orders"] span,
+a[href*="assets"] span,
+a[href*="fee-tier"] span,
+a[href*="api-keys"] span,
+a[href*="settings"] span,
+a[href*="fee"] svg,
+a[href*="tier"] svg,
+a[href*="api"] svg,
+a[href*="keys"] svg,
+a[href*="fee"] span,
+a[href*="tier"] span,
+a[href*="api"] span,
+a[href*="keys"] span {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+    fill: currentColor !important;
+}
+
+/* Hover state for children - BRIGHT BLUE */
+a[href*="overview"]:hover svg,
+a[href*="positions"]:hover svg,
+a[href*="orders"]:hover svg,
+a[href*="assets"]:hover svg,
+a[href*="fee-tier"]:hover svg,
+a[href*="api-keys"]:hover svg,
+a[href*="settings"]:hover svg,
+a[href*="overview"]:hover span,
+a[href*="positions"]:hover span,
+a[href*="orders"]:hover span,
+a[href*="assets"]:hover span,
+a[href*="fee-tier"]:hover span,
+a[href*="api-keys"]:hover span,
+a[href*="settings"]:hover span,
+a[href*="fee"]:hover svg,
+a[href*="tier"]:hover svg,
+a[href*="api"]:hover svg,
+a[href*="keys"]:hover svg,
+a[href*="fee"]:hover span,
+a[href*="tier"]:hover span,
+a[href*="api"]:hover span,
+a[href*="keys"]:hover span {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    fill: #007BFF !important;
+}
+
+/* Active state for children - ENSURE BRIGHT BLUE ON ALL ACTIVE ELEMENTS */
+a[href*="overview"][aria-current="page"] span,
+a[href*="positions"][aria-current="page"] span,
+a[href*="orders"][aria-current="page"] span,
+a[href*="assets"][aria-current="page"] span,
+a[href*="fee-tier"][aria-current="page"] span,
+a[href*="api-keys"][aria-current="page"] span,
+a[href*="settings"][aria-current="page"] span,
+a[href*="overview"].active span,
+a[href*="positions"].active span,
+a[href*="orders"].active span,
+a[href*="assets"].active span,
+a[href*="fee-tier"].active span,
+a[href*="api-keys"].active span,
+a[href*="settings"].active span,
+a[href*="overview"][data-state="active"] span,
+a[href*="positions"][data-state="active"] span,
+a[href*="orders"][data-state="active"] span,
+a[href*="assets"][data-state="active"] span,
+a[href*="fee-tier"][data-state="active"] span,
+a[href*="api-keys"][data-state="active"] span,
+a[href*="settings"][data-state="active"] span,
+a[href*="overview"][data-active="true"] span,
+a[href*="positions"][data-active="true"] span,
+a[href*="orders"][data-active="true"] span,
+a[href*="assets"][data-active="true"] span,
+a[href*="fee-tier"][data-active="true"] span,
+a[href*="api-keys"][data-active="true"] span,
+a[href*="settings"][data-active="true"] span,
+/* SVG icons active states */
+a[href*="overview"][aria-current="page"] svg,
+a[href*="positions"][aria-current="page"] svg,
+a[href*="orders"][aria-current="page"] svg,
+a[href*="assets"][aria-current="page"] svg,
+a[href*="fee-tier"][aria-current="page"] svg,
+a[href*="api-keys"][aria-current="page"] svg,
+a[href*="settings"][aria-current="page"] svg,
+a[href*="overview"].active svg,
+a[href*="positions"].active svg,
+a[href*="orders"].active svg,
+a[href*="assets"].active svg,
+a[href*="fee-tier"].active svg,
+a[href*="api-keys"].active svg,
+a[href*="settings"].active svg,
+a[href*="overview"][data-state="active"] svg,
+a[href*="positions"][data-state="active"] svg,
+a[href*="orders"][data-state="active"] svg,
+a[href*="assets"][data-state="active"] svg,
+a[href*="fee-tier"][data-state="active"] svg,
+a[href*="api-keys"][data-state="active"] svg,
+a[href*="settings"][data-state="active"] svg,
+a[href*="overview"][data-active="true"] svg,
+a[href*="positions"][data-active="true"] svg,
+a[href*="orders"][data-active="true"] svg,
+a[href*="assets"][data-active="true"] svg,
+a[href*="fee-tier"][data-active="true"] svg,
+a[href*="api-keys"][data-active="true"] svg,
+a[href*="settings"][data-active="true"] svg,
+/* Broader patterns for children active states */
+a[href*="fee"][aria-current="page"] span,
+a[href*="tier"][aria-current="page"] span,
+a[href*="api"][aria-current="page"] span,
+a[href*="keys"][aria-current="page"] span,
+a[href*="fee"].active span,
+a[href*="tier"].active span,
+a[href*="api"].active span,
+a[href*="keys"].active span,
+a[href*="fee"][data-state="active"] span,
+a[href*="tier"][data-state="active"] span,
+a[href*="api"][data-state="active"] span,
+a[href*="keys"][data-state="active"] span,
+a[href*="fee"][data-active="true"] span,
+a[href*="tier"][data-active="true"] span,
+a[href*="api"][data-active="true"] span,
+a[href*="keys"][data-active="true"] span,
+a[href*="fee"][aria-current="page"] svg,
+a[href*="tier"][aria-current="page"] svg,
+a[href*="api"][aria-current="page"] svg,
+a[href*="keys"][aria-current="page"] svg,
+a[href*="fee"].active svg,
+a[href*="tier"].active svg,
+a[href*="api"].active svg,
+a[href*="keys"].active svg,
+a[href*="fee"][data-state="active"] svg,
+a[href*="tier"][data-state="active"] svg,
+a[href*="api"][data-state="active"] svg,
+a[href*="keys"][data-state="active"] svg,
+a[href*="fee"][data-active="true"] svg,
+a[href*="tier"][data-active="true"] svg,
+a[href*="api"][data-active="true"] svg,
+a[href*="keys"][data-active="true"] svg {
+    color: #007BFF !important;
+    -webkit-text-fill-color: #007BFF !important;
+    fill: #007BFF !important;
+}
+
+/* 4. Market Stats Labels - Keep White */
+.oui-data-label.oui-text-base-contrast-36,
+[class*="data-label"][class*="text-base-contrast"] {
+    color: #ffffff !important;
+}
+
+/* 5. Panel Tabs (Order book, Last trades) - White color */
+.oui-tab-trigger.oui-text-base-contrast-36,
+[class*="tab-trigger"][class*="text-base-contrast-36"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+.oui-tab-trigger[data-state="active"],
+[class*="tab-trigger"][data-state="active"] {
+    color: #ffffff !important;
+    background: none !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* 6. Connect Wallet Button - Bright Blue Solid */
+.wallet-connect-button,
+button.oui-gradient-brand,
+[class*="wallet"][class*="connect"],
+button[class*="gradient-brand"] {
+    background: #007BFF !important;
+    background-color: #007BFF !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+/* FIX: "Create account" button text color */
+button,
+[role="button"],
+[type="button"],
+[class*="button"],
+[class*="Button"] {
+    color: inherit !important;
+}
+
+/* Specific fix for primary buttons to ensure white text */
+button[class*="primary"],
+button[class*="Primary"],
+button[class*="solid"],
+[class*="wallet"],
+[class*="create"],
+[class*="Create"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* 7. Trading Interface - Order Book/Last Trades Default Colors */
+div[class*="order-book"] .oui-text-primary,
+div[class*="last-trades"] .oui-text-primary,
+div[class*="order-book"] .oui-text-primary-light,
+div[class*="last-trades"] .oui-text-primary-light {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+    background: transparent !important;
+}
+
+/* Order Book Column Headers - White */
+div[class*="order-book"] [class*="header"],
+div[class*="last-trades"] [class*="header"],
+div[class*="order-book"] th,
+div[class*="last-trades"] th {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Order Book Bid Prices - Green */
+div[class*="order-book"] [class*="bid"],
+div[class*="order-book"] [data-side="buy"],
+div[class*="last-trades"] [class*="buy"] {
+    color: #0ecb81 !important;
+    -webkit-text-fill-color: #0ecb81 !important;
+}
+
+/* Order Book Ask Prices - Red */
+div[class*="order-book"] [class*="ask"],
+div[class*="order-book"] [data-side="sell"],
+div[class*="last-trades"] [class*="sell"] {
+    color: #f6465d !important;
+    -webkit-text-fill-color: #f6465d !important;
+}
+
+/* 8. Markets Page - Restore Original Colors */
+main [class*="markets"] [data-state="active"],
+main [class*="markets"] [data-active="true"],
+main [class*="markets"] .oui-text-primary,
+main [class*="markets"] .oui-text-primary-light {
+    color: inherit !important;
+    -webkit-text-fill-color: inherit !important;
+    background: transparent !important;
+    background-image: none !important;
+}
+
+/* Markets page positive values - Green */
+main [class*="markets"] .text-emerald-500,
+main [class*="markets"] [class*="gainers"] {
+    color: #10b981 !important;
+    -webkit-text-fill-color: #10b981 !important;
+}
+
+/* Markets page negative values - Red */
+main [class*="markets"] .text-red-500,
+main [class*="markets"] [class*="losers"] {
+    color: #ef4444 !important;
+    -webkit-text-fill-color: #ef4444 !important;
 }
