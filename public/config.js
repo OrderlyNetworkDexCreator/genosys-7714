@@ -27,7 +27,7 @@ window.__RUNTIME_CONFIG__ = {
   "VITE_TWITTER_URL": "https://twitter.com/GenosysExchange",
   "VITE_SEO_SITE_NAME": "https://genosys.exchange/",
   "VITE_SEO_SITE_DESCRIPTION": "Genosys Exchange | The Next-Gen Perp DEX for All Traders",
-  "VITE_SEO_SITE_URL": "https://dex.orderly.network/genosys-7714/",
+  "VITE_SEO_SITE_URL": "https://perps.genosys.exchange",
   "VITE_SEO_SITE_LANGUAGE": "en",
   "VITE_SEO_SITE_LOCALE": "en_US",
   "VITE_SEO_TWITTER_HANDLE": "@GenosysExchange",
