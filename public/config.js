@@ -18,7 +18,7 @@ window.__RUNTIME_CONFIG__ = {
   "VITE_APP_DESCRIPTION": "Genosys Exchange | Global Perp DEX. Built for Every Trader.",
   "VITE_HAS_PRIMARY_LOGO": "true",
   "VITE_HAS_SECONDARY_LOGO": "true",
-  "VITE_ENABLED_MENUS": "Trading,Swap,Portfolio,Markets,Points,Campaigns,Leaderboard",
+  "VITE_ENABLED_MENUS": "Trading,Swap,Portfolio,Markets,Points,Campaigns",
   "VITE_CUSTOM_MENUS": "Docs, https://genosys.exchange/docs.html",
   "VITE_ENABLE_SERVICE_DISCLAIMER_DIALOG": "false",
   "VITE_ENABLE_CAMPAIGNS": "false",
